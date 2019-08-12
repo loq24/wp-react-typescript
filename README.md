@@ -74,3 +74,11 @@ To implement type checking your reducers. You just have to import all the Action
 type Actions = FetchCurrentUserAction | FetchPostsAction | FetchPostAction | UpdatePostAction | PublishPostAction | DeletePostAction;
 ```
 Please see the full code under <a href="/src/reducers">/src/reducers</a> directory.
+
+## Code completion and IntelliSense
+
+When done right, you will have a very intelligent code suggestions upon typing in your Code Editor.
+<p><img src="/assets/images/screenshots/Screen%20Shot%202019-08-12%20at%2010.03.42%20PM.png" ></p>
+<p><img src="/assets/images/screenshots/Screen%20Shot%202019-08-12%20at%202.38.53%20PM.png" ></p>
+<p><img src="/assets/images/screenshots/Screen%20Shot%202019-08-12%20at%202.40.21%20PM.png" ></p>
+
