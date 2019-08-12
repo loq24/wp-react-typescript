@@ -69,7 +69,7 @@ Please see the full code under <a href="/src/actions">/src/actions</a> directory
 
 ## React Redux Reducers
 
-To implement type checking your reducers. You just have to import all the Action's dispatch interfaces and make a Union type out of those. Your actions should look like this:
+To implement type checking on your reducers. You just have to import all the Action's dispatch interfaces and make a Union type out of those. Your action should look like this:
 ```javascript
 type Actions = FetchCurrentUserAction | FetchPostsAction | FetchPostAction | UpdatePostAction | PublishPostAction | DeletePostAction;
 ```
