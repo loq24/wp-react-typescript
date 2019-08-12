@@ -6,9 +6,9 @@
   A simple admin functionality with authentication support.
 </p>
 
-<p align="center">
+
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/loq24/wp-react-typescript/)
-</p>
+
 
 ## About
 
