@@ -65,7 +65,7 @@ export const fetchPosts = () => {
  };
 };
 ```
-Please see the full code under the <a href="/src/actions">src/actions</a> directory.
+Please see the full code under <a href="/src/actions">/src/actions</a> directory.
 
 ## React Redux Reducers
 
@@ -73,3 +73,4 @@ To implement type checking your reducers. You just have to import all the Action
 ```javascript
 type Actions = FetchCurrentUserAction | FetchPostsAction | FetchPostAction | UpdatePostAction | PublishPostAction | DeletePostAction;
 ```
+Please see the full code under <a href="/src/reducers">/src/reducers</a> directory.
