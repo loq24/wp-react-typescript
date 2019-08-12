@@ -15,7 +15,7 @@
 
 ## About
 
-`wp-react-typescript` was developed to help other React.js developers in building an admin part of their project. They can make this their guide in integrating authentication using JWT. This will also help them properly type their React project especially when using `react-redux` with Typescript.
+`wp-react-typescript` was developed to help other React.js developers in building an admin section of their project. They can make this their guide in integrating authentication using JWT. This will also help them properly type their React project especially when using `react-redux` with Typescript.
 
 
 ## React Redux Actions
