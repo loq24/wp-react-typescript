@@ -1,3 +1,5 @@
+<p align="center"><img width="300" src="/assets/images/wp-react-ts.jpg" ></p>
+
 <h3 align="center">
   WP React Typescript
 </h3>
