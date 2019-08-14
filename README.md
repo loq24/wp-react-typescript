@@ -82,3 +82,6 @@ When done right, you will have a very intelligent code suggestions upon typing i
 <p><img src="/assets/images/screenshots/Screen%20Shot%202019-08-12%20at%202.38.53%20PM.png" ></p>
 <p><img src="/assets/images/screenshots/Screen%20Shot%202019-08-12%20at%202.40.21%20PM.png" ></p>
 
+## License
+
+MIT
