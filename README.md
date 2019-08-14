@@ -5,7 +5,7 @@
 </h3>
 
 <p align="center">
-  A simple admin functionality with JWT authentication
+  A simple starter backend theme with Wordpress API & React
 </p>
 
 <p align="center">
