@@ -5,7 +5,7 @@
 </h3>
 
 <p align="center">
-  A simple starter admin theme with Wordpress API & React
+  A simple starter admin panel theme with Wordpress API & React
 </p>
 
 <p align="center">
