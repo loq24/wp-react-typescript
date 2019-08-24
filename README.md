@@ -5,7 +5,7 @@
 </h3>
 
 <p align="center">
-  A simple starter dashboard theme with Wordpress API & React
+  A starter fully functional dashboard with Wordpress API & React
 </p>
 
 <p align="center">
