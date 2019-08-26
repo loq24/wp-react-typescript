@@ -5,7 +5,7 @@
 </h3>
 
 <p align="center">
-  A starter fully functional dashboard with Authentication using Wordpress API & React
+  A starter fully functional dashboard theme with Authentication using Wordpress API & React
 </p>
 
 <p align="center">
