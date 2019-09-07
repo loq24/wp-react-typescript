@@ -1,8 +1,8 @@
-import React from "react";
-import { Post } from "../../../actions";
-import { Card, Button } from "react-bootstrap";
-import moment from "moment";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Post } from 'actions';
+import { Card, Button } from 'react-bootstrap';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 type ItemProps = {
 	post: Post;
@@ -28,17 +28,17 @@ const Item: React.FC<ItemProps> = ({
 				<Card.Text
 					dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
 				/>
-				<footer className="blockquote-footer">
+				<footer className='blockquote-footer'>
 					{moment(post.modified).fromNow()}
 				</footer>
 			</Card.Body>
 			<Card.Footer>
 				<Link to={`/post/edit/${post.id}`}>
-					<Button variant="link">Edit</Button>
+					<Button variant='link'>Edit</Button>
 				</Link>
 				<Button
-					variant="link"
-					className="text-danger"
+					variant='link'
+					className='text-danger'
 					onClick={() => {
 						onDeletePost(post.id);
 					}}

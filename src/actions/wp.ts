@@ -1,14 +1,14 @@
-import axios from "axios";
-import { Dispatch } from "redux";
-import Constants from "../constants";
+import axios from 'axios';
+import { Dispatch } from 'redux';
+import Constants from '../constants';
 import {
 	ActionWPTypes,
 	ActionMessagesTypes,
 	SuccessMessageAction,
 	ClearMessageAction,
 	WarningMessageAction
-} from "./";
-import { tokenHeader } from "./auth";
+} from 'actions';
+import { tokenHeader } from 'actions/auth';
 
 export interface User {
 	id: number;
@@ -120,7 +120,7 @@ export const updatePost: UpdatePostType = (id, newPostData, callback) => {
 			dispatch<UpdatePostAction>({ type: ActionWPTypes.updatePost });
 			dispatch<SuccessMessageAction>({
 				type: ActionMessagesTypes.successMsg,
-				payload: "The post was successfully updated!"
+				payload: 'The post was successfully updated!'
 			});
 		} catch (error) {
 			console.log(error);
@@ -144,10 +144,10 @@ export const deletePost = (id: number, callback: () => void) => {
 			});
 			dispatch<WarningMessageAction>({
 				type: ActionMessagesTypes.warningMsg,
-				payload: "The post was successfully deleted."
+				payload: 'The post was successfully deleted.'
 			});
 		} catch (error) {
-			console.log("Error");
+			console.log('Error');
 		}
 		callback();
 	};
@@ -168,12 +168,12 @@ export const publishPost = (newPostData: NewPostData, callback: () => void) => {
 			dispatch<PublishPostAction>({ type: ActionWPTypes.publishPost });
 			dispatch<SuccessMessageAction>({
 				type: ActionMessagesTypes.successMsg,
-				payload: "You have successfully published a post."
+				payload: 'You have successfully published a post.'
 			});
 		} catch (error) {
 			dispatch<WarningMessageAction>({
 				type: ActionMessagesTypes.warningMsg,
-				payload: "Sorry, we are having problem adding the new post."
+				payload: 'Sorry, we are having problem adding the new post.'
 			});
 			console.log(error);
 		}

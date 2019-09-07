@@ -1,26 +1,21 @@
-import React from "react";
+import React from 'react';
 import {
 	Formik,
 	FormikActions,
 	FormikProps,
 	Form as FormikForm,
 	Field
-} from "formik";
-import { Form, Button, Alert } from "react-bootstrap";
-import { string, object } from "yup";
-import { connect, useSelector } from "react-redux";
-import {
-	authUser,
-	fetchCurrentUser,
-	FormValues,
-	AuthUserType
-} from "../../actions";
-import { AppState } from "../../reducers";
-import FormField from "../../components/FormField";
+} from 'formik';
+import { Form, Button, Alert } from 'react-bootstrap';
+import { string, object } from 'yup';
+import { connect, useSelector } from 'react-redux';
+import { authUser, fetchCurrentUser, FormValues, AuthUserType } from 'actions';
+import { AppState } from 'reducers';
+import FormField from 'components/FormField';
 
 const initialValues: FormValues = {
-	username: "",
-	password: ""
+	username: 'editoruser',
+	password: 'editoruserpass'
 };
 
 type SignInFormProps = {
@@ -34,8 +29,8 @@ const SignInForm = ({ authUser, fetchCurrentUser }: SignInFormProps) => {
 
 	return (
 		<>
-			{warningMsg && <Alert variant="warning">{warningMsg}</Alert>}
-			{successMsg && <Alert variant="success">{successMsg}</Alert>}
+			{warningMsg && <Alert variant='warning'>{warningMsg}</Alert>}
+			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
 			<Formik
 				initialValues={initialValues}
 				onSubmit={(values: FormValues, actions: FormikActions<FormValues>) => {
@@ -48,26 +43,26 @@ const SignInForm = ({ authUser, fetchCurrentUser }: SignInFormProps) => {
 				render={({ isSubmitting }: FormikProps<FormValues>) => (
 					<FormikForm>
 						<Field
-							type="text"
-							name="username"
-							placeholder="Username"
+							type='text'
+							name='username'
+							placeholder='Username'
 							component={FormField}
 						/>
 						<Field
-							type="password"
-							name="password"
-							placeholder="Password"
+							type='password'
+							name='password'
+							placeholder='Password'
 							component={FormField}
 						/>
-						<Form.Group className="text-center">
-							<Button variant="primary" type="submit" disabled={isSubmitting}>
+						<Form.Group className='text-center'>
+							<Button variant='primary' type='submit' disabled={isSubmitting}>
 								{isSubmitting ? (
 									<>
-										<span className="spinner-grow spinner-grow-sm" />
+										<span className='spinner-grow spinner-grow-sm' />
 										Loading...
 									</>
 								) : (
-									"Sign In"
+									'Sign In'
 								)}
 							</Button>
 						</Form.Group>
@@ -79,8 +74,8 @@ const SignInForm = ({ authUser, fetchCurrentUser }: SignInFormProps) => {
 };
 
 const SignFormSchemaValidation = object().shape({
-	username: string().required("This field is required."),
-	password: string().required("This field is required.")
+	username: string().required('This field is required.'),
+	password: string().required('This field is required.')
 });
 
 export default connect(

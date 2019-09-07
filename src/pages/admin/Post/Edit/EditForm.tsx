@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 import {
 	Formik,
 	FormikActions,
 	FormikProps,
 	Form as FormikForm,
 	Field
-} from "formik";
-import { Form, Button, Alert } from "react-bootstrap";
-import { string, object } from "yup";
-import { connect, useSelector } from "react-redux";
-import { updatePost, UpdatePostType, Post } from "../../../../actions";
-import { AppState } from "../../../../reducers";
-import FormField from "../../../../components/FormField";
+} from 'formik';
+import { Form, Button, Alert } from 'react-bootstrap';
+import { string, object } from 'yup';
+import { connect, useSelector } from 'react-redux';
+import { updatePost, UpdatePostType, Post } from 'actions';
+import { AppState } from 'reducers';
+import FormField from 'components/FormField';
 
 interface EditFormValues {
 	title: string;
@@ -29,11 +29,11 @@ const EditForm: React.FC<EditFormProps> = ({ id, post, updatePost }) => {
 
 	return (
 		<>
-			{successMsg && <Alert variant="success">{successMsg}</Alert>}
+			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
 			<Formik
 				initialValues={{
-					title: post ? post.title.rendered : "",
-					content: post ? post.content.rendered : ""
+					title: post ? post.title.rendered : '',
+					content: post ? post.content.rendered : ''
 				}}
 				enableReinitialize={true}
 				onSubmit={(
@@ -48,26 +48,26 @@ const EditForm: React.FC<EditFormProps> = ({ id, post, updatePost }) => {
 				render={({ isSubmitting }: FormikProps<EditFormValues>) => (
 					<FormikForm>
 						<Field
-							type="text"
-							name="title"
-							placeholder="..."
+							type='text'
+							name='title'
+							placeholder='...'
 							component={FormField}
 						/>
 						<Field
-							type="textarea"
-							name="content"
-							placeholder="..."
+							type='textarea'
+							name='content'
+							placeholder='...'
 							component={FormField}
 						/>
 						<Form.Group>
-							<Button variant="primary" type="submit" disabled={isSubmitting}>
+							<Button variant='primary' type='submit' disabled={isSubmitting}>
 								{isSubmitting ? (
 									<>
-										<span className="spinner-grow spinner-grow-sm" />
+										<span className='spinner-grow spinner-grow-sm' />
 										Loading...
 									</>
 								) : (
-									"Update"
+									'Update'
 								)}
 							</Button>
 						</Form.Group>
@@ -79,8 +79,8 @@ const EditForm: React.FC<EditFormProps> = ({ id, post, updatePost }) => {
 };
 
 const SignFormSchemaValidation = object().shape({
-	title: string().required("This field is required."),
-	content: string().required("This field is required.")
+	title: string().required('This field is required.'),
+	content: string().required('This field is required.')
 });
 
 export default connect(

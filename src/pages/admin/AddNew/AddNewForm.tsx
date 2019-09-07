@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 import {
 	Formik,
 	FormikActions,
 	FormikProps,
 	Form as FormikForm,
 	Field
-} from "formik";
-import { Form, Button, Alert } from "react-bootstrap";
-import { string, object } from "yup";
-import { connect, useSelector } from "react-redux";
-import { publishPost, NewPostData } from "../../../actions";
-import { AppState } from "../../../reducers";
-import FormField from "../../../components/FormField";
+} from 'formik';
+import { Form, Button, Alert } from 'react-bootstrap';
+import { string, object } from 'yup';
+import { connect, useSelector } from 'react-redux';
+import { publishPost, NewPostData } from 'actions';
+import { AppState } from 'reducers';
+import FormField from 'components/FormField';
 
 const initialValues: NewPostData = {
-	title: "",
-	content: "",
-	status: "publish"
+	title: '',
+	content: '',
+	status: 'publish'
 };
 
 type AddNewProps = {
@@ -28,7 +28,7 @@ const AddNewForm: React.FC<AddNewProps> = ({ publishPost }) => {
 
 	return (
 		<>
-			{successMsg && <Alert variant="success">{successMsg}</Alert>}
+			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
 			<Formik
 				initialValues={initialValues}
 				enableReinitialize={true}
@@ -45,26 +45,26 @@ const AddNewForm: React.FC<AddNewProps> = ({ publishPost }) => {
 				render={({ isSubmitting }: FormikProps<NewPostData>) => (
 					<FormikForm>
 						<Field
-							type="text"
-							name="title"
-							placeholder="Title..."
+							type='text'
+							name='title'
+							placeholder='Title...'
 							component={FormField}
 						/>
 						<Field
-							name="content"
-							type="textarea"
-							placeholder="Content..."
+							name='content'
+							type='textarea'
+							placeholder='Content...'
 							component={FormField}
 						/>
 						<Form.Group>
-							<Button variant="primary" type="submit" disabled={isSubmitting}>
+							<Button variant='primary' type='submit' disabled={isSubmitting}>
 								{isSubmitting ? (
 									<>
-										<span className="spinner-grow spinner-grow-sm" />
+										<span className='spinner-grow spinner-grow-sm' />
 										Loading...
 									</>
 								) : (
-									"Publish"
+									'Publish'
 								)}
 							</Button>
 						</Form.Group>
@@ -76,8 +76,8 @@ const AddNewForm: React.FC<AddNewProps> = ({ publishPost }) => {
 };
 
 const SignFormSchemaValidation = object().shape({
-	title: string().required("This field is required."),
-	content: string().required("This field is required.")
+	title: string().required('This field is required.'),
+	content: string().required('This field is required.')
 });
 
 export default connect(
