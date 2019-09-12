@@ -20,11 +20,11 @@ describe('SignIn component', () => {
 	});
 
 	it('shows the username & password', () => {
-		expect(wrapper.find('[data-test="username-txt"]').length).toEqual(1);
-		expect(wrapper.find('[data-test="password-txt"]').length).toEqual(1);
+		expect(wrapper.find('[data-test="username-txt"]')).toHaveLength(1);
+		expect(wrapper.find('[data-test="password-txt"]')).toHaveLength(1);
 	});
 
 	it('shows the sign in form', () => {
-		expect(wrapper.find(SignInForm).length).toEqual(1);
+		expect(wrapper.find(SignInForm)).toHaveLength(1);
 	});
 });

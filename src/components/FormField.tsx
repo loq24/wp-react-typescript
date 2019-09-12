@@ -1,6 +1,6 @@
-import React from "react";
-import { FieldProps, FormikProps } from "formik";
-import { Form } from "react-bootstrap";
+import React from 'react';
+import { FieldProps, FormikProps } from 'formik';
+import { Form } from 'react-bootstrap';
 
 interface FormFieldProps {
 	type: string;
@@ -16,12 +16,12 @@ const FormField: React.FC<FieldProps & FormFieldProps> = ({
 	placeholder
 }) => {
 	switch (type) {
-		case "textarea":
+		case 'textarea':
 			return (
 				<Form.Group>
 					<Form.Control
-						as="textarea"
-						size="lg"
+						as='textarea'
+						size='lg'
 						className={`contentarea ${className}`}
 						{...field}
 						placeholder={placeholder}
@@ -29,13 +29,13 @@ const FormField: React.FC<FieldProps & FormFieldProps> = ({
 					{renderError(form, field.name)}
 				</Form.Group>
 			);
-		case "password":
+		case 'password':
 			return (
 				<Form.Group>
 					<Form.Control
-						type="password"
+						type='password'
 						{...field}
-						size="lg"
+						size='lg'
 						placeholder={placeholder}
 						className={className}
 					/>
@@ -48,7 +48,7 @@ const FormField: React.FC<FieldProps & FormFieldProps> = ({
 					<Form.Control
 						type={type}
 						{...field}
-						size="lg"
+						size='lg'
 						placeholder={placeholder}
 						className={className}
 					/>
@@ -61,10 +61,14 @@ const FormField: React.FC<FieldProps & FormFieldProps> = ({
 const renderError = (form: FormikProps<any>, name: string) => {
 	return (
 		form.touched[name] &&
-		form.errors[name] && <span className="error-text">{form.errors[name]}</span>
+		form.errors[name] && (
+			<span className='error-text' data-test={`error-text-${name}`}>
+				{form.errors[name]}
+			</span>
+		)
 	);
 };
 
-FormField.defaultProps = { className: "", placeholder: "" };
+FormField.defaultProps = { className: '', placeholder: '' };
 
 export default FormField;

@@ -9,36 +9,45 @@ import {
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
 import { connect, useSelector } from 'react-redux';
-import { authUser, fetchCurrentUser, FormValues, AuthUserType } from 'actions';
+import { authUser, fetchCurrentUser, AuthUserType, FormValues } from 'actions';
 import { AppState } from 'reducers';
 import FormField from 'components/FormField';
-
-const initialValues: FormValues = {
-	username: 'editoruser',
-	password: 'editoruserpass'
-};
 
 type SignInFormProps = {
 	authUser: AuthUserType;
 	fetchCurrentUser: () => void;
+	accessValues: FormValues;
 };
 
-const SignInForm = ({ authUser, fetchCurrentUser }: SignInFormProps) => {
+const SignInForm = ({
+	authUser,
+	fetchCurrentUser,
+	accessValues
+}: SignInFormProps) => {
 	const warningMsg = useSelector((state: AppState) => state.msg.warning);
 	const successMsg = useSelector((state: AppState) => state.msg.success);
 
+	const handleSubmit = (
+		values: FormValues,
+		actions: FormikActions<FormValues>
+	): void => {
+		authUser(values, () => {
+			actions.setSubmitting(false);
+			fetchCurrentUser();
+		});
+	};
+
 	return (
 		<>
-			{warningMsg && <Alert variant='warning'>{warningMsg}</Alert>}
+			{warningMsg && (
+				<Alert data-test='warning-msg' variant='warning'>
+					{warningMsg}
+				</Alert>
+			)}
 			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
 			<Formik
-				initialValues={initialValues}
-				onSubmit={(values: FormValues, actions: FormikActions<FormValues>) => {
-					authUser(values, () => {
-						actions.setSubmitting(false);
-						fetchCurrentUser();
-					});
-				}}
+				initialValues={accessValues}
+				onSubmit={handleSubmit}
 				validationSchema={SignFormSchemaValidation}
 				render={({ isSubmitting }: FormikProps<FormValues>) => (
 					<FormikForm>
@@ -58,7 +67,10 @@ const SignInForm = ({ authUser, fetchCurrentUser }: SignInFormProps) => {
 							<Button variant='primary' type='submit' disabled={isSubmitting}>
 								{isSubmitting ? (
 									<>
-										<span className='spinner-grow spinner-grow-sm' />
+										<span
+											data-test='submitting'
+											className='spinner-grow spinner-grow-sm'
+										/>
 										Loading...
 									</>
 								) : (
