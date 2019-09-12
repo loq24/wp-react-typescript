@@ -1,13 +1,13 @@
-import { AuthUserAction, UnAuthUserAction } from "../actions";
-import { ActionAuthTypes } from "../actions";
+import { AuthUserAction, UnAuthUserAction, ForTestingAction } from '../actions';
+import { ActionAuthTypes } from '../actions';
 
-type Actions = AuthUserAction | UnAuthUserAction;
+type Actions = AuthUserAction | UnAuthUserAction | ForTestingAction;
 
 export interface AuthState {
 	authenticated: boolean;
 }
 
-const initialState: AuthState = {
+export const initialState: AuthState = {
 	authenticated: false
 };
 

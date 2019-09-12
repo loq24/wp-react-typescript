@@ -68,3 +68,7 @@ export const unAuthUser = () => {
 		});
 	};
 };
+
+export interface ForTestingAction {
+	type: ActionAuthTypes.forTesting;
+}
