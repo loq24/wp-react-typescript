@@ -69,6 +69,6 @@ export const unAuthUser = () => {
 	};
 };
 
-export interface ForTestingAction {
+export interface TestingAuthAction {
 	type: ActionAuthTypes.forTesting;
 }

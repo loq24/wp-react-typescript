@@ -180,3 +180,11 @@ export const publishPost = (newPostData: NewPostData, callback: () => void) => {
 		callback();
 	};
 };
+
+export interface TestingMessageAction {
+	type: ActionMessagesTypes.forTesting;
+}
+
+export interface TestingWPAction {
+	type: ActionWPTypes.forTesting;
+}

@@ -1,7 +1,11 @@
-import { AuthUserAction, UnAuthUserAction, ForTestingAction } from '../actions';
+import {
+	AuthUserAction,
+	UnAuthUserAction,
+	TestingAuthAction
+} from '../actions';
 import { ActionAuthTypes } from '../actions';
 
-type Actions = AuthUserAction | UnAuthUserAction | ForTestingAction;
+type Actions = AuthUserAction | UnAuthUserAction | TestingAuthAction;
 
 export interface AuthState {
 	authenticated: boolean;

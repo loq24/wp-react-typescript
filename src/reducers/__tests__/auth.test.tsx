@@ -3,18 +3,18 @@ import {
 	ActionAuthTypes,
 	AuthUserAction,
 	UnAuthUserAction,
-	ForTestingAction
+	TestingAuthAction
 } from 'actions';
 
 describe('Auth reducer', () => {
 	it('should return default state', () => {
 		const action = {
 			type: ActionAuthTypes.forTesting
-		} as ForTestingAction;
+		} as TestingAuthAction;
 
 		const newState = authReducer(initialState, action);
 
-		expect(newState.authenticated).toEqual(false);
+		expect(newState).toMatchObject(initialState);
 	});
 
 	it('handles an action type of authUser', () => {
