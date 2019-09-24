@@ -19,9 +19,9 @@ Based from [this](https://github.com/loq24/wp-react) original project. `wp-react
 
 ## Demo
 
-![wp-react](/assets/images/demo.gif)
-
 [https://wp-react-ts.lougiequisel.com/signin](https://wp-react-ts.lougiequisel.com/signin)
+
+![wp-react](/assets/images/demo.gif)
 
 ## React Redux Actions
 
