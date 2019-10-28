@@ -37,7 +37,11 @@ const Posts: React.FC<PostsProps> = ({ fetchPosts, deletePost }) => {
 
 	const renderModal = (): JSX.Element => {
 		return (
-			<Modal show={modalStatus} onHide={() => setModalStatus(false)}>
+			<Modal
+				data-test='delete-modal'
+				show={modalStatus}
+				onHide={() => setModalStatus(false)}
+			>
 				<Modal.Header>Confirmation</Modal.Header>
 				<Modal.Body>Do you really want to delete this post?</Modal.Body>
 				<Modal.Footer>

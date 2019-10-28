@@ -20,7 +20,7 @@ type Actions =
 	| DeletePostAction
 	| TestingWPAction;
 
-interface InitialState {
+export interface InitialState {
 	currentUser?: User;
 	posts: Post[];
 	post?: Post;

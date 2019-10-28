@@ -17,11 +17,42 @@ describe('SignIn Form Component', () => {
 		wrapper.unmount();
 	});
 
+	it('shows warning message when the input is wrong', () => {
+		wrapper.unmount();
+		const mockMsg = {
+			msg: {
+				warning: 'Username or password is incorrect.'
+			}
+		};
+		wrapper = mount(
+			<Root initialState={mockMsg}>
+				<SignInForm accessValues={initialFormValues} />
+			</Root>
+		);
+		expect(wrapper.find('div[data-test="warning-msg"]')).toHaveLength(1);
+	});
+
+	it('shows a message after logging out', () => {
+		wrapper.unmount();
+		const mockMsg = {
+			msg: {
+				success: 'Thanks for trying the app.'
+			}
+		};
+		wrapper = mount(
+			<Root initialState={mockMsg}>
+				<SignInForm accessValues={initialFormValues} />
+			</Root>
+		);
+		expect(wrapper.find('div[data-test="ty-msg"]')).toHaveLength(1);
+	});
+
 	it('successfully submits', () => {
 		expect(wrapper.find('span[data-test="submitting"]')).toHaveLength(0);
 		wrapper.find('form').simulate('submit', {
 			preventDefault: () => {}
 		});
+
 		expect(wrapper.find('span[data-test="submitting"]')).toHaveLength(1);
 		expect(wrapper.find('button[type="submit"]').props().disabled).toBeTruthy();
 	});

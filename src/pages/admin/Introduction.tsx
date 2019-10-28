@@ -19,11 +19,17 @@ const Introduction = () => {
 				way to help other developer who are having a hard time integrating
 				Typescript with their react-redux projects. You may find the source code
 				of this project{' '}
-				<a href='https://github.com/loq24/wp-react-typescript/'>here</a>. Any
-				feedback is appreciated. I hope you enjoy this app!
+				<a
+					data-test='github-link'
+					href='https://github.com/loq24/wp-react-typescript/'
+				>
+					here
+				</a>
+				. Any feedback is appreciated. I hope you enjoy this app!
 			</p>
 			<p>
 				<a
+					data-test='portfolio-link'
 					href='https://lougiequisel.com/'
 					target='_blank'
 					rel='noopener noreferrer'

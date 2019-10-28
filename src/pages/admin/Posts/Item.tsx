@@ -24,21 +24,23 @@ const Item: React.FC<ItemProps> = ({
 			}`}
 		>
 			<Card.Body>
-				<Card.Title>{post.title.rendered}</Card.Title>
+				<Card.Title data-test='post-title'>{post.title.rendered}</Card.Title>
 				<Card.Text
+					data-test='post-desc'
 					dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
 				/>
-				<footer className='blockquote-footer'>
+				<footer data-test='post-modified-date' className='blockquote-footer'>
 					{moment(post.modified).fromNow()}
 				</footer>
 			</Card.Body>
 			<Card.Footer>
-				<Link to={`/post/edit/${post.id}`}>
+				<Link data-test='edit-post-btn' to={`/post/edit/${post.id}`}>
 					<Button variant='link'>Edit</Button>
 				</Link>
 				<Button
 					variant='link'
 					className='text-danger'
+					data-test='delete-post-btn'
 					onClick={() => {
 						onDeletePost(post.id);
 					}}

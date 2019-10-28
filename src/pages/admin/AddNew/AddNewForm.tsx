@@ -28,7 +28,11 @@ const AddNewForm: React.FC<AddNewProps> = ({ publishPost }) => {
 
 	return (
 		<>
-			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
+			{successMsg && (
+				<Alert data-test='add-successful-msg' variant='success'>
+					{successMsg}
+				</Alert>
+			)}
 			<Formik
 				initialValues={initialValues}
 				enableReinitialize={true}
@@ -60,7 +64,10 @@ const AddNewForm: React.FC<AddNewProps> = ({ publishPost }) => {
 							<Button variant='primary' type='submit' disabled={isSubmitting}>
 								{isSubmitting ? (
 									<>
-										<span className='spinner-grow spinner-grow-sm' />
+										<span
+											data-test='submitting'
+											className='spinner-grow spinner-grow-sm'
+										/>
 										Loading...
 									</>
 								) : (

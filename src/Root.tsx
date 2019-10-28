@@ -8,16 +8,16 @@ import { AuthUserAction, ActionAuthTypes, fetchCurrentUser } from './actions';
 
 type RootProps = {
 	children: React.ReactNode;
+	initialState?: {};
 };
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
-const token = localStorage.getItem('_wp_react_typescipt_token');
-if (token) {
-	store.dispatch<AuthUserAction>({ type: ActionAuthTypes.authUser });
-	(store.dispatch as ThunkDispatch<{}, void, AnyAction>)(fetchCurrentUser());
-}
-
-const Root: React.FC<RootProps> = ({ children }) => {
+const Root: React.FC<RootProps> = ({ children, initialState = {} }) => {
+	const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+	const token = localStorage.getItem('_wp_react_typescipt_token');
+	if (token) {
+		store.dispatch<AuthUserAction>({ type: ActionAuthTypes.authUser });
+		(store.dispatch as ThunkDispatch<{}, void, AnyAction>)(fetchCurrentUser());
+	}
 	return <Provider store={store}>{children}</Provider>;
 };
 

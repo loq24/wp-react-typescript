@@ -12,12 +12,12 @@ type Actions =
 	| SuccessMessageAction
 	| TestingMessageAction;
 
-interface IinitialState {
+export interface InitialState {
 	warning: string;
 	success: string;
 }
 
-export const initialState: IinitialState = {
+export const initialState: InitialState = {
 	warning: '',
 	success: ''
 };

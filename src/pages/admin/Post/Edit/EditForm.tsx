@@ -29,7 +29,11 @@ const EditForm: React.FC<EditFormProps> = ({ id, post, updatePost }) => {
 
 	return (
 		<>
-			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
+			{successMsg && (
+				<Alert variant='success' data-test='edit-successful-msg'>
+					{successMsg}
+				</Alert>
+			)}
 			<Formik
 				initialValues={{
 					title: post ? post.title.rendered : '',
@@ -63,7 +67,10 @@ const EditForm: React.FC<EditFormProps> = ({ id, post, updatePost }) => {
 							<Button variant='primary' type='submit' disabled={isSubmitting}>
 								{isSubmitting ? (
 									<>
-										<span className='spinner-grow spinner-grow-sm' />
+										<span
+											data-test='submitting'
+											className='spinner-grow spinner-grow-sm'
+										/>
 										Loading...
 									</>
 								) : (

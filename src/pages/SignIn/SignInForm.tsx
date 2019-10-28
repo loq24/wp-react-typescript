@@ -44,7 +44,11 @@ const SignInForm = ({
 					{warningMsg}
 				</Alert>
 			)}
-			{successMsg && <Alert variant='success'>{successMsg}</Alert>}
+			{successMsg && (
+				<Alert variant='success' data-test='ty-msg'>
+					{successMsg}
+				</Alert>
+			)}
 			<Formik
 				initialValues={accessValues}
 				onSubmit={handleSubmit}
