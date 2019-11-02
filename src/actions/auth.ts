@@ -1,10 +1,10 @@
-import axios from "axios";
-import { Dispatch } from "redux";
-import Constants from "../constants";
-import { ActionAuthTypes, ActionMessagesTypes } from "./types";
+import axios from 'axios';
+import { Dispatch } from 'redux';
+import Constants from '../constants';
+import { ActionAuthTypes, ActionMessagesTypes } from 'actions/types';
 
 export const tokenHeader = (): { headers: { Authorization: string } } => {
-	const token = localStorage.getItem("_wp_react_typescipt_token");
+	const token = localStorage.getItem('_wp_react_typescipt_token');
 	return { headers: { Authorization: `Bearer ${token}` } };
 };
 
@@ -37,11 +37,11 @@ export const authUser: AuthUserType = (credentials, callback) => {
 			dispatch<ClearMessageAction>({ type: ActionMessagesTypes.clearMsg });
 			const response = await axios.post(`${Constants.jwtAuthUri}`, credentials);
 			dispatch<AuthUserAction>({ type: ActionAuthTypes.authUser });
-			localStorage.setItem("_wp_react_typescipt_token", response.data.token);
+			localStorage.setItem('_wp_react_typescipt_token', response.data.token);
 		} catch (error) {
 			dispatch<WarningMessageAction>({
 				type: ActionMessagesTypes.warningMsg,
-				payload: "Incorrect username or password"
+				payload: 'Incorrect username or password'
 			});
 		}
 		callback();
@@ -58,13 +58,17 @@ export interface SuccessMessageAction {
 }
 
 export const unAuthUser = () => {
-	localStorage.removeItem("_wp_react_typescipt_token");
+	localStorage.removeItem('_wp_react_typescipt_token');
 	return (dispatch: Dispatch) => {
 		dispatch<UnAuthUserAction>({ type: ActionAuthTypes.unAuthUser });
 		dispatch<ClearMessageAction>({ type: ActionMessagesTypes.clearMsg });
 		dispatch<SuccessMessageAction>({
 			type: ActionMessagesTypes.successMsg,
-			payload: "Thanks for trying the app!"
+			payload: 'Thanks for trying the app!'
 		});
 	};
 };
+
+export interface TestingAuthAction {
+	type: ActionAuthTypes.forTesting;
+}

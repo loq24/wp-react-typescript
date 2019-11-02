@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { match } from "react-router-dom";
-import EditForm from "./EditForm";
-import { connect, useSelector } from "react-redux";
-import { fetchPost, FetchPostType } from "../../../../actions";
-import { AppState } from "../../../../reducers";
+import React, { useEffect } from 'react';
+import { match } from 'react-router-dom';
+import EditForm from './EditForm';
+import { connect, useSelector } from 'react-redux';
+import { fetchPost, FetchPostType } from 'actions';
+import { AppState } from 'reducers';
 
 type Param = {
 	id: string;

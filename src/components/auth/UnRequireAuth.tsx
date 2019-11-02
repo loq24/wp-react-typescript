@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { AppState } from "../../reducers";
-import { History } from "history";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { AppState } from 'reducers';
+import { History } from 'history';
 
 type RequireAuthProps = {
 	authenticated: boolean;
@@ -14,19 +14,19 @@ const UnRequireAuth = <P extends object>(
 	class Authentication extends Component<RequireAuthProps> {
 		componentWillMount() {
 			if (this.props.authenticated) {
-				this.props.history.push("/");
+				this.props.history.push('/');
 			}
 		}
 
 		componentWillUpdate(nextProps: RequireAuthProps) {
 			if (nextProps.authenticated) {
-				this.props.history.push("/");
+				this.props.history.push('/');
 			}
 		}
 
 		render() {
 			const { ...props } = this.props;
-			return <ComposedComponent {...props as P} />;
+			return <ComposedComponent {...(props as P)} />;
 		}
 	}
 

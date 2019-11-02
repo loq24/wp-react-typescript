@@ -7,8 +7,9 @@ import {
 	UpdatePostAction,
 	PublishPostAction,
 	DeletePostAction,
+	TestingWPAction,
 	Post
-} from "../actions";
+} from '../actions';
 
 type Actions =
 	| FetchCurrentUserAction
@@ -16,19 +17,20 @@ type Actions =
 	| FetchPostAction
 	| UpdatePostAction
 	| PublishPostAction
-	| DeletePostAction;
+	| DeletePostAction
+	| TestingWPAction;
 
-interface InitialState {
+export interface InitialState {
 	currentUser?: User;
 	posts: Post[];
 	post?: Post;
 }
 
-const initialValues: InitialState = {
+export const initialState: InitialState = {
 	posts: []
 };
 
-export default function(state = initialValues, action: Actions) {
+export default function(state = initialState, action: Actions) {
 	switch (action.type) {
 		case ActionWPTypes.fetchCurrentUser:
 			return { ...state, currentUser: action.payload };
