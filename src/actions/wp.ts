@@ -6,7 +6,9 @@ import {
 	ActionMessagesTypes,
 	SuccessMessageAction,
 	ClearMessageAction,
-	WarningMessageAction
+	WarningMessageAction,
+	ActionAuthTypes,
+	UnAuthUserAction
 } from 'actions';
 import { tokenHeader } from 'actions/auth';
 
@@ -34,7 +36,8 @@ export const fetchCurrentUser = () => {
 				payload: response.data
 			});
 		} catch (error) {
-			console.log(error);
+			dispatch<UnAuthUserAction>({ type: ActionAuthTypes.unAuthUser });
+			dispatch<ClearMessageAction>({ type: ActionMessagesTypes.clearMsg });
 		}
 	};
 };
