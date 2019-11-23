@@ -27,7 +27,7 @@ Based from [this](https://github.com/loq24/wp-react) original project, `wp-react
 
 For the backend, make sure that the [JWT plugin](https://github.com/Tmeister/wp-api-jwt-auth) is installed and properly set up in your Wordpress website. The plugin has a detailed instructions on it's [github](https://github.com/Tmeister/wp-api-jwt-auth) page.
 
-After setting up your backend website, you can clone this repository and replace the API configuration found in `/src/constants/index.ts`. Mainly, just replace the `baseUri` value. You then have to run the following basic command to run the frontend:
+After setting up your backend website, you can clone this repository and replace the API configuration found in `/src/constants/index.ts`. Mainly, just replace the `baseUri` value. You then have to run the following basic command to start the frontend:
 ```bash
 yarn start OR npm start
 ```
