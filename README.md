@@ -32,6 +32,11 @@ After setting up your backend website, you can clone this repository and replace
 yarn start OR npm start
 ```
 
+To check the test status run:
+```bash
+yarn test OR npm test
+```
+
 ## License
 
 MIT
