@@ -2,24 +2,19 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/Header';
 import SidebarNav from 'components/SidebarNav';
-import { Route } from 'react-router-dom';
+import { Route, useLocation } from 'react-router-dom';
 import Introduction from './Introduction';
 import Posts from './Posts/Posts';
 import Edit from './Post/Edit/Edit';
 import AddNew from './AddNew/AddNew';
 import AccountInfo from './AccountInfo';
-import { Location } from 'history';
 import { AppState } from 'reducers';
 import { unAuthUser } from 'actions';
 
-type AdminProps = {
-  location: Location;
-};
-
-const Admin: React.FC<AdminProps> = ({ location }) => {
+const Admin: React.FC = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state: AppState) => state.wp.currentUser);
-  const { pathname } = location;
+  const { pathname } = useLocation();
 
   const unAuthUserCallback = React.useCallback(() => {
     dispatch(unAuthUser());
