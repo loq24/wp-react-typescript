@@ -1,0 +1,13 @@
+.sidebar-nav{ position: absolute; left: 0; width: 200px; min-height: calc(100vh - 56px); height: 100%; background-color: var(--secondary-color); border-right: 1px solid #ececec; padding: 20px 10px;}
+.nav-pills .nav-link{ position: relative; color: #1a1a1abf;margin-bottom: 12px; }
+.nav-pills .nav-link.active{ color: #111; background-color: #d7dee4;}
+
+/**
+* Media Queries
+*/
+@media (max-width: 425px){
+  .sidebar-nav{width: 40px; padding: 20px 0; background: #f0ffff;}
+  .sidebar-nav .nav-link{ padding: 5px 11px 0; width: 40px; border-radius: 0; margin-bottom: 25px;}
+  .sidebar-nav .nav-link span{ text-indent: -99999px; display: block; }
+  .sidebar-nav .nav-link i { position: absolute; left: auto; right: auto; }
+}

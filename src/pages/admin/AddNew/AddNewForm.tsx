@@ -4,24 +4,24 @@ import {
   FormikActions,
   FormikProps,
   Form as FormikForm,
-  Field,
+  Field
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { publishPost, NewPostData } from 'actions';
-import { AppState } from 'reducers';
+import { successMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
 const initialValues: NewPostData = {
   title: '',
   content: '',
-  status: 'publish',
+  status: 'publish'
 };
 
 const AddNewForm: React.FC = () => {
   const dispatch = useDispatch();
-  const successMsg = useSelector((state: AppState) => state.msg.success);
+  const successMsg = useSelector(successMsgSelector);
 
   return (
     <>
@@ -82,7 +82,7 @@ const AddNewForm: React.FC = () => {
 
 const SignFormSchemaValidation = object().shape({
   title: string().required('This field is required.'),
-  content: string().required('This field is required.'),
+  content: string().required('This field is required.')
 });
 
 export default AddNewForm;

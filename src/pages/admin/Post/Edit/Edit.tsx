@@ -3,7 +3,7 @@ import { match } from 'react-router-dom';
 import EditForm from './EditForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPost } from 'actions';
-import { AppState } from 'reducers';
+import { postSelector } from 'selectors';
 
 type Param = {
   id: string;
@@ -16,7 +16,7 @@ type EditProps = {
 const Edit: React.FC<EditProps> = ({ match }) => {
   const { params } = match;
   const dispatch = useDispatch();
-  const post = useSelector((state: AppState) => state.wp.post);
+  const post = useSelector(postSelector);
 
   useEffect(() => {
     dispatch(fetchPost(params.id));
