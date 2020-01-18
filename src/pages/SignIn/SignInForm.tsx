@@ -4,13 +4,13 @@ import {
   FormikActions,
   FormikProps,
   Form as FormikForm,
-  Field,
+  Field
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { authUser, fetchCurrentUser, FormValues } from 'actions';
-import { AppState } from 'reducers';
+import { warningMsgSelector, successMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
 type SignInFormProps = {
@@ -19,8 +19,8 @@ type SignInFormProps = {
 
 const SignInForm = ({ accessValues }: SignInFormProps) => {
   const dispatch = useDispatch();
-  const warningMsg = useSelector((state: AppState) => state.msg.warning);
-  const successMsg = useSelector((state: AppState) => state.msg.success);
+  const warningMsg = useSelector(warningMsgSelector);
+  const successMsg = useSelector(successMsgSelector);
 
   const handleSubmit = (
     values: FormValues,
@@ -88,7 +88,7 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
 
 const SignFormSchemaValidation = object().shape({
   username: string().required('This field is required.'),
-  password: string().required('This field is required.'),
+  password: string().required('This field is required.')
 });
 
 export default SignInForm;

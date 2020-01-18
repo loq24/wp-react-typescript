@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from 'reducers';
+import { postsSelector, warningMsgSelector } from 'selectors';
 import { Post, fetchPosts, deletePost } from 'actions';
 import Item from './Item';
-import Placeholder from 'components/Placeholder';
+import Placeholder from 'components/Placeholder/Placeholder';
 import { Modal, Button, Alert } from 'react-bootstrap';
 
 const Posts: React.FC = () => {
@@ -13,8 +13,8 @@ const Posts: React.FC = () => {
   const [isDeleting, setDeletingStatus] = useState(false);
 
   const dispatch = useDispatch();
-  const posts = useSelector((state: AppState) => state.wp.posts);
-  const warningMsg = useSelector((state: AppState) => state.msg.warning);
+  const posts = useSelector(postsSelector);
+  const warningMsg = useSelector(warningMsgSelector);
 
   const onDeletePost = React.useCallback((id: number) => {
     setModalStatus(true);

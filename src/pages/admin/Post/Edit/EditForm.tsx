@@ -4,13 +4,13 @@ import {
   FormikActions,
   FormikProps,
   Form as FormikForm,
-  Field,
+  Field
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { updatePost, Post } from 'actions';
-import { AppState } from 'reducers';
+import { successMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
 interface EditFormValues {
@@ -25,7 +25,7 @@ type EditFormProps = {
 
 const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
   const dispatch = useDispatch();
-  const successMsg = useSelector((state: AppState) => state.msg.success);
+  const successMsg = useSelector(successMsgSelector);
 
   return (
     <>
@@ -37,7 +37,7 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
       <Formik
         initialValues={{
           title: post ? post.title.rendered : '',
-          content: post ? post.content.rendered : '',
+          content: post ? post.content.rendered : ''
         }}
         enableReinitialize={true}
         onSubmit={(
@@ -89,7 +89,7 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
 
 const SignFormSchemaValidation = object().shape({
   title: string().required('This field is required.'),
-  content: string().required('This field is required.'),
+  content: string().required('This field is required.')
 });
 
 export default EditForm;
