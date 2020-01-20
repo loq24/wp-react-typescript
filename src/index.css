@@ -5,6 +5,8 @@
   --sidebar-bg-color: #f7f7f7;
   --input-bg-color: #FFF;
   --border-color: #ececec;
+  --navbar-bg-color: #f1f1f1;
+  --button-color: #888;
 }
 
 body.dark{
@@ -14,6 +16,8 @@ body.dark{
   --sidebar-bg-color: #444;
   --input-bg-color: #777;
   --border-color: #555;
+  --navbar-bg-color: #111;
+  --button-color: #FFF;
 }
 
 body {
@@ -31,5 +35,10 @@ body {
 /**
 * Misc
 */
+.main-navbar{ background-color: var(--navbar-bg-color); box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2); z-index: 9999; }
+.main-navbar .navbar-brand, .main-navbar .navbar-text{ color: var(--text-color); }
+.main-navbar .navbar-brand:hover{ color: var(--text-color); opacity: .7; }
+.main-navbar .navbar-text a{ color: var(--text-color); opacity: .7; }
+.main-navbar .btn-outline-light{ color: var(--button-color); border-color: var(--button-color); }
 .contentarea{ min-height: 300px; }
 .form-control{ background-color: var(--input-bg-color); }
