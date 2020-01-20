@@ -1,5 +1,5 @@
-.sidebar-nav{ position: absolute; left: 0; width: 200px; min-height: calc(100vh - 56px); height: 100%; background-color: var(--secondary-color); border-right: 1px solid #ececec; padding: 20px 10px;}
-.nav-pills .nav-link{ position: relative; color: #1a1a1abf;margin-bottom: 12px; }
+.sidebar-nav{ position: absolute; left: 0; width: 200px; min-height: calc(100vh - 56px); height: 100%; background-color: var(--sidebar-bg-color); border-right: 1px solid var(--border-color); padding: 20px 10px;}
+.nav-pills .nav-link{ position: relative; color: var(--text-color); margin-bottom: 12px; }
 .nav-pills .nav-link.active{ color: #111; background-color: #d7dee4;}
 
 /**

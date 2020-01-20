@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { User } from 'actions';
+import Toggle from 'components/Toggle/Toggle';
 
 type HeaderProps = {
   currentUser?: User;
@@ -18,6 +19,7 @@ const Header: React.FC<HeaderProps> = React.memo(
           </Navbar.Brand>
         </Link>
         <Navbar.Collapse className="justify-content-end">
+          <Toggle />
           <Navbar.Text>
             Signed in as:{' '}
             <Link to="/account">
