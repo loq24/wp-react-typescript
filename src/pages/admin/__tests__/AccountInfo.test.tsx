@@ -1,19 +1,18 @@
 import { ReactWrapper } from 'enzyme';
 import { mountByRouter } from 'utils/helpers';
 import AccountInfo from 'pages/admin/AccountInfo';
-import { User } from 'actions';
 
 describe('AccountInfo component', () => {
   let wrapper: ReactWrapper;
   let path = '/admin/account';
-  let mockUser: User;
+  const mockUser = {
+    id: 1,
+    name: 'Mock User',
+    description: 'This is a mock user',
+    url: 'https://github.com/loq24/wp-react-typescript/'
+  };
+
   beforeEach(() => {
-    mockUser = {
-      id: 1,
-      name: 'Mock User',
-      description: 'This is a mock user',
-      url: 'https://github.com/loq24/wp-react-typescript/'
-    };
     const initialState = {
       wp: {
         currentUser: mockUser
