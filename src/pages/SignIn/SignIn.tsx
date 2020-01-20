@@ -2,11 +2,13 @@ import React from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import SignInForm from './SignInForm';
 import { initialFormValues } from 'utils/helpers';
+import Toggle from 'components/Toggle/Toggle';
 import './SignIn.css';
 
 const SignIn = () => {
   return (
     <div className="sign-in vertical-center">
+      <Toggle />
       <Container>
         <Row className="justify-content-md-center">
           <Col md="auto" className="login-form">

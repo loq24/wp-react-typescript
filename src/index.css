@@ -1,8 +1,19 @@
 :root{
   --main-bg-color: #FFF;
   --text-color: #212529;
-  --secondary-color: #f7f7f7;
-  --link-color: #FFF;
+  --box-bg-color: #e9ecef;
+  --sidebar-bg-color: #f7f7f7;
+  --input-bg-color: #FFF;
+  --border-color: #ececec;
+}
+
+body.dark{
+  --main-bg-color: #282c35;
+  --text-color: #FFF;
+  --box-bg-color: #333;
+  --sidebar-bg-color: #444;
+  --input-bg-color: #777;
+  --border-color: #555;
 }
 
 body {
@@ -14,20 +25,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--main-bg-color);
   color: var(--text-color);
+  transition: background .5s ease-out;
 }
 
 /**
 * Misc
 */
 .contentarea{ min-height: 300px; }
-.logout-btn{ padding: 2px 5px; }
-
-
-/**
-* Media Queries
-*/
-@media (max-width: 425px){
-  .navbar{ flex-direction: column; }
-  .navbar > a{ text-align: center; }
-  .container-fluid{ margin-left: 40px; padding-left: 15px; }
-}
+.form-control{ background-color: var(--input-bg-color); }

@@ -1,2 +1,19 @@
 .admin-content{ position: relative; display: flex; flex-flow: row wrap; }
 .container-fluid{ margin-left: 200px; padding-top: 25px; padding-left: 25px; }
+.navbar .toggle-theme{ position: inherit; margin-top: 17px; margin-right: 15px; }
+.logout-btn{ padding: 2px 5px; }
+
+/**
+* Introduction
+*/
+.jumbotron, .card, .modal-content{ background-color: var(--box-bg-color); }
+.modal-header, .modal-footer{ border-color: var(--border-color); }
+
+/**
+* Media Queries
+*/
+@media (max-width: 425px){
+  .navbar{ flex-direction: column; }
+  .navbar > a{ text-align: center; }
+  .container-fluid{ margin-left: 40px; padding-left: 15px; }
+}
