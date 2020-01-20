@@ -1,5 +1,5 @@
 import { ReactWrapper } from 'enzyme';
-import Header from 'components/Header';
+import Header from 'components/AdminHeader';
 import SidebarNav from 'components/SidebarNav/SidebarNav';
 import Introduction from 'pages/admin/Introduction';
 import { mountByRouter } from 'utils/helpers';
@@ -8,7 +8,7 @@ describe('Admin component', () => {
   let wrapper: ReactWrapper;
 
   beforeEach(() => {
-    wrapper = mountByRouter('/');
+    wrapper = mountByRouter('/admin');
   });
   afterEach(() => {
     wrapper.unmount();

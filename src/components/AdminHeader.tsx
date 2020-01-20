@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { User } from 'actions';
 import Toggle from 'components/Toggle/Toggle';
 
-type HeaderProps = {
+type AdminHeaderProps = {
   currentUser?: User;
   unAuthUser: () => void;
 };
 
-const Header: React.FC<HeaderProps> = React.memo(
+const AdminHeader: React.FC<AdminHeaderProps> = React.memo(
   ({ currentUser, unAuthUser }) => {
     return (
       <Navbar bg="dark" className="navbar-dark">
@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = React.memo(
           <Toggle />
           <Navbar.Text>
             Signed in as:{' '}
-            <Link to="/account">
+            <Link to="/admin/account">
               <span data-test="current-user-name">
                 {currentUser ? currentUser.name : '...'}
               </span>
@@ -45,4 +45,4 @@ const Header: React.FC<HeaderProps> = React.memo(
   }
 );
 
-export default Header;
+export default AdminHeader;

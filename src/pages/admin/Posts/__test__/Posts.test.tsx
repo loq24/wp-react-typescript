@@ -10,7 +10,7 @@ import moxios from 'moxios';
 describe('Posts Component', () => {
   let wrapper: ReactWrapper;
   let mockPosts: Post[];
-  const path = '/posts';
+  const path = '/admin/posts';
   beforeEach(() => {
     moxios.install();
     wrapper = mountByRouter(path);

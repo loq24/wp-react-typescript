@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Header from '../../components/Header';
+import AdminHeader from '../../components/AdminHeader';
 import SidebarNav from 'components/SidebarNav/SidebarNav';
 import { Route, useLocation } from 'react-router-dom';
 import Introduction from './Introduction';
@@ -23,15 +23,15 @@ const Admin: React.FC = () => {
 
   return (
     <div className="dashboard">
-      <Header currentUser={currentUser} unAuthUser={unAuthUserCallback} />
+      <AdminHeader currentUser={currentUser} unAuthUser={unAuthUserCallback} />
       <div className="admin-content">
-        <SidebarNav basePath="/" pathName={pathname} />
+        <SidebarNav basePath="/admin" pathName={pathname} />
         <div className="container-fluid">
-          <Route path="/" exact component={Introduction} />
-          <Route path="/posts" component={Posts} />
-          <Route path="/post/edit/:id" component={Edit} />
-          <Route path="/add-new" component={AddNew} />
-          <Route path="/account" component={AccountInfo} />
+          <Route path="/admin" exact component={Introduction} />
+          <Route path="/admin/posts" component={Posts} />
+          <Route path="/admin/post/edit/:id" component={Edit} />
+          <Route path="/admin/add-new" component={AddNew} />
+          <Route path="/admin/account" component={AccountInfo} />
         </div>
       </div>
     </div>

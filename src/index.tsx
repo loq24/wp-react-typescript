@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch } from 'react-router-dom';
-import Admin from 'pages/admin/Admin';
-import SignIn from 'pages/SignIn/SignIn';
+import Root from './Root';
+
 import PrivateRoute from 'components/auth/PrivateRoute';
 import PublicRoute from 'components/auth/PublicRoute';
-import Root from './Root';
+
+import Admin from 'pages/admin/Admin';
+import SignIn from 'pages/SignIn/SignIn';
+
 import './index.css';
 
 ReactDOM.render(
@@ -16,7 +19,7 @@ ReactDOM.render(
         <PublicRoute path="/signin">
           <SignIn />
         </PublicRoute>
-        <PrivateRoute path="/">
+        <PrivateRoute path="/admin">
           <Admin />
         </PrivateRoute>
       </Switch>
