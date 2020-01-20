@@ -30,7 +30,7 @@ const Item: React.FC<ItemProps> = React.memo(
           </footer>
         </Card.Body>
         <Card.Footer>
-          <Link data-test="edit-post-btn" to={`/post/edit/${post.id}`}>
+          <Link data-test="edit-post-btn" to={`/admin/post/edit/${post.id}`}>
             <Button variant="link">Edit</Button>
           </Link>
           <Button
