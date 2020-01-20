@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import AdminHeader from '../../components/AdminHeader';
 import SidebarNav from 'components/SidebarNav/SidebarNav';
 import { Route, useLocation } from 'react-router-dom';
@@ -8,22 +7,13 @@ import Posts from './Posts/Posts';
 import Edit from './Post/Edit/Edit';
 import AddNew from './AddNew/AddNew';
 import AccountInfo from './AccountInfo';
-import { currentUserSelector } from 'selectors';
-import { unAuthUser } from 'actions';
 import './Admin.css';
 
 const Admin: React.FC = () => {
-  const dispatch = useDispatch();
-  const currentUser = useSelector(currentUserSelector);
   const { pathname } = useLocation();
-
-  const unAuthUserCallback = React.useCallback(() => {
-    dispatch(unAuthUser());
-  }, [dispatch]);
-
   return (
     <div className="dashboard">
-      <AdminHeader currentUser={currentUser} unAuthUser={unAuthUserCallback} />
+      <AdminHeader />
       <div className="admin-content">
         <SidebarNav basePath="/admin" pathName={pathname} />
         <div className="container-fluid">

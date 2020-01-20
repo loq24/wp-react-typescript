@@ -1,21 +1,33 @@
 import React from 'react';
 import AdminHeader from '../AdminHeader';
-import { shallow, ShallowWrapper } from 'enzyme';
-import { User } from '../../actions';
+import { ReactWrapper } from 'enzyme';
+import { mountByRouter } from 'utils/helpers';
 import Toggle from '../Toggle/Toggle';
 
 describe('Header Component', () => {
-  let wrapper: ShallowWrapper;
-  let mockUser: User = {
+  let wrapper: ReactWrapper;
+  const path = '/admin';
+  const mockUser = {
     id: 1,
-    name: 'Test User',
-    description: 'This is a test user',
-    url: 'https://lougiequisel.com'
+    name: 'Mock User',
+    description: 'This is a mock user',
+    url: 'https://github.com/loq24/wp-react-typescript/'
   };
+
   beforeEach(() => {
-    wrapper = shallow(
-      <AdminHeader currentUser={mockUser} unAuthUser={() => {}} />
-    );
+    const initialState = {
+      wp: {
+        currentUser: mockUser
+      }
+    };
+    wrapper = mountByRouter(path, initialState);
+  });
+  afterEach(() => {
+    wrapper.unmount();
+  });
+
+  it('renders the AdminHeader component', () => {
+    expect(wrapper.find(AdminHeader)).toHaveLength(1);
   });
 
   it('has tagline', () => {
