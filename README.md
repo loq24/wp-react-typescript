@@ -25,15 +25,21 @@ This project shows that the Headless Wordpress can be a perfect backend for your
 
 ## Installation
 
-For the backend, make sure that the [JWT plugin](https://github.com/Tmeister/wp-api-jwt-auth) is installed and properly set up in your Wordpress website. The plugin has a detailed instructions on it's [github](https://github.com/Tmeister/wp-api-jwt-auth) page.
-
-After setting up your backend website, you can clone this repository and replace the API configuration found in `/src/constants/index.ts`. Mainly, just replace the `baseUri` value. Run the following commands:
+In order to run this App in your local machine, run the commands below. Make sure `yarn` or `npm` is already installed in your computer.
 
 ```bash
 git clone https://github.com/loq24/wp-react-typescript
+cd wp-react-typescript
 yarn install OR npm install
 yarn start OR npm start
 ```
+The app will open in **http://localhost:3000/**
+
+
+<h4>Setting up your own Wordpress backend</h4>
+
+Install a Wordpress website and make sure that the [JWT Plugin](https://github.com/Tmeister/wp-api-jwt-auth) is installed and activated. The plugin has a detailed instruction on it's [github](https://github.com/Tmeister/wp-api-jwt-auth) page. 
+Replace the API configuration found in your `/src/constants/index.ts` file. Make sure to replace the `baseUri` value with your API's url. 
 
 This app is also fully tested. To check the test status run:
 
