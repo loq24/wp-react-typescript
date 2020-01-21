@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, ButtonToolbar, Button } from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
 
 const Introduction = () => {
   return (
