@@ -1,5 +1,5 @@
 import React from 'react';
-import Toggle from '../Toggle/Toggle';
+import Toggle from 'components/Toggle/Toggle';
 import { shallow, ShallowWrapper } from 'enzyme';
 
 describe('Toggle Component', () => {

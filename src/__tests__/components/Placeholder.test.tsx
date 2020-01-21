@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import Placeholder from '../Placeholder/Placeholder';
+import Placeholder from 'components/Placeholder/Placeholder';
 
 describe('Placeholder component', () => {
   let wrapper: ShallowWrapper;

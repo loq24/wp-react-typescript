@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import Root from '../../../Root';
-import SignIn from '../SignIn';
-import SignInForm from '../SignInForm';
+import Root from 'Root';
+import SignIn from 'pages/SignIn/SignIn';
+import SignInForm from 'pages/SignIn/SignInForm';
 import Toggle from 'components/Toggle/Toggle';
 
 describe('SignIn component', () => {
