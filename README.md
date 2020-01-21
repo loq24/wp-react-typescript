@@ -15,7 +15,7 @@
 
 ## About
 
-This project shows that the Headless Wordpress can be a perfect backend for your React project. It also encourage the users to implement `Typescript` especially with `react-redux` library. The project is fully tested using `JEST` & `Enzyme`.
+This project shows that the Headless Wordpress can be a perfect backend for your React project. It also encourages users to implement `Typescript` especially with `react-redux` library. The project is fully tested using `JEST` & `Enzyme`.
 
 ## Demo
 
