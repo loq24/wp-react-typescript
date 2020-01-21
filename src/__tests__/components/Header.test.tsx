@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../Header';
+import Header from 'components/Header';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { User } from '../../actions';
-import Toggle from '../Toggle/Toggle';
+import { User } from 'actions';
+import Toggle from 'components/Toggle/Toggle';
 
 describe('Header Component', () => {
   let wrapper: ShallowWrapper;

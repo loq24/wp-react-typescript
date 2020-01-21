@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import SidebarNav from '../SidebarNav/SidebarNav';
+import SidebarNav from 'components/SidebarNav/SidebarNav';
 
 describe('SidebarNav component', () => {
   let wrapper: ShallowWrapper;
