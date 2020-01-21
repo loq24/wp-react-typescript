@@ -6,7 +6,7 @@
 * Media Queries
 */
 @media (max-width: 425px){
-  .sidebar-nav{width: 40px; padding: 20px 0; background: #f0ffff;}
+  .sidebar-nav{width: 40px; padding: 20px 0; background-color: var(--sidebar-bg-color); }
   .sidebar-nav .nav-link{ padding: 5px 11px 0; width: 40px; border-radius: 0; margin-bottom: 25px;}
   .sidebar-nav .nav-link span{ text-indent: -99999px; display: block; }
   .sidebar-nav .nav-link i { position: absolute; left: auto; right: auto; }
