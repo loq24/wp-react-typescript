@@ -5,6 +5,7 @@
   --sidebar-bg-color: #f7f7f7;
   --input-bg-color: #FFF;
   --border-color: #ececec;
+  --button-color: #3282b8;
 }
 
 body.dark{
@@ -14,6 +15,7 @@ body.dark{
   --sidebar-bg-color: #444;
   --input-bg-color: #777;
   --border-color: #555;
+  --button-color: #46b5d1;
 }
 
 body {
@@ -31,5 +33,6 @@ body {
 /**
 * Misc
 */
+button.btn-primary{ background-color: var(--button-color); border-color: var(--button-color); }
 .contentarea{ min-height: 300px; }
 .form-control{ background-color: var(--input-bg-color); }
