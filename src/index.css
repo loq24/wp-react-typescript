@@ -7,6 +7,7 @@
   --border-color: #ececec;
   --navbar-bg-color: #f1f1f1;
   --button-color: #888;
+  --link-color: #3282b8;
 }
 
 body.dark{
@@ -18,6 +19,7 @@ body.dark{
   --border-color: #555;
   --navbar-bg-color: #111;
   --button-color: #FFF;
+  --link-color: #46b5d1;
 }
 
 body {
@@ -35,10 +37,18 @@ body {
 /**
 * Misc
 */
+a{ color: var(--link-color); }
+a:hover{ text-decoration: none; }
+.main-navbar .navbar-nav a.nav-link{ color: var(--link-color) !important; }
+.main-navbar .navbar-nav a.nav-link:hover{ opacity: .7; }
+button.btn-primary{ background-color: var(--link-color); border-color: var(--link-color); }
+
 .main-navbar{ background-color: var(--navbar-bg-color); box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2); z-index: 9999; }
 .main-navbar .navbar-brand, .main-navbar .navbar-text{ color: var(--text-color); }
 .main-navbar .navbar-brand:hover{ color: var(--text-color); opacity: .7; }
-.main-navbar .navbar-text a{ color: var(--text-color); opacity: .7; }
+.main-navbar .navbar-text a{ color: var(--text-color) !important; opacity: .7; }
+.main-navbar .navbar-text a:hover{ opacity: .9; }
 .main-navbar .btn-outline-light{ color: var(--button-color); border-color: var(--button-color); }
+
 .contentarea{ min-height: 300px; }
 .form-control{ background-color: var(--input-bg-color); }

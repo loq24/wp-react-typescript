@@ -34,6 +34,7 @@ describe('Edit Component', () => {
       title: {
         rendered: 'Mock Title 1'
       },
+      slug: 'mock-title-1',
       content: {
         rendered: 'Mock Content 1'
       },

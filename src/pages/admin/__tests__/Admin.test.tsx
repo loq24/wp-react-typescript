@@ -1,5 +1,5 @@
 import { ReactWrapper } from 'enzyme';
-import Header from 'components/AdminHeader';
+import Header from 'components/Header';
 import SidebarNav from 'components/SidebarNav/SidebarNav';
 import Introduction from 'pages/admin/Introduction';
 import { mountByRouter } from 'utils/helpers';
@@ -16,6 +16,10 @@ describe('Admin component', () => {
 
   it('displays the header component', () => {
     expect(wrapper.find(Header)).toHaveLength(1);
+  });
+
+  it('provides a tagline for the header component', () => {
+    expect(wrapper.find('span[data-test="tagline"]')).toHaveLength(1);
   });
 
   it('displays the sidebar nav component', () => {

@@ -36,6 +36,7 @@ describe('Posts Component', () => {
           title: {
             rendered: 'Mock Title 1'
           },
+          slug: 'mock-title-1',
           content: {
             rendered: 'Mock Content 1'
           },
@@ -50,6 +51,7 @@ describe('Posts Component', () => {
           title: {
             rendered: 'Mock Title 2'
           },
+          slug: 'mock-title-2',
           content: {
             rendered: 'Mock Content 2'
           },

@@ -1,0 +1,3 @@
+.post-list{ display: flex; flex-flow: column wrap;}
+.post-list > article{ margin-bottom: 25px; }
+.post-list > article h3{ margin-bottom: 0; }

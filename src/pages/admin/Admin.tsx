@@ -1,7 +1,8 @@
 import React from 'react';
-import AdminHeader from '../../components/AdminHeader';
+import Header from '../../components/Header';
 import SidebarNav from 'components/SidebarNav/SidebarNav';
-import { Route, useLocation } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
+import { Route, useLocation, Link } from 'react-router-dom';
 import Introduction from './Introduction';
 import Posts from './Posts/Posts';
 import Edit from './Post/Edit/Edit';
@@ -11,9 +12,16 @@ import './Admin.css';
 
 const Admin: React.FC = () => {
   const { pathname } = useLocation();
+
   return (
     <div className="dashboard">
-      <AdminHeader />
+      <Header>
+        <Link to="/">
+          <Navbar.Brand data-test="tagline">
+            WP React with Typescript
+          </Navbar.Brand>
+        </Link>
+      </Header>
       <div className="admin-content">
         <SidebarNav basePath="/admin" pathName={pathname} />
         <div className="container-fluid">

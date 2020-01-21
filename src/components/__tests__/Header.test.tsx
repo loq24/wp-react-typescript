@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminHeader from '../AdminHeader';
+import Header from '../Header';
 import { ReactWrapper } from 'enzyme';
 import { mountByRouter } from 'utils/helpers';
 import Toggle from '../Toggle/Toggle';
@@ -26,12 +26,14 @@ describe('Header Component', () => {
     wrapper.unmount();
   });
 
-  it('renders the AdminHeader component', () => {
-    expect(wrapper.find(AdminHeader)).toHaveLength(1);
+  it('renders the Header component', () => {
+    expect(wrapper.find(Header)).toHaveLength(1);
   });
 
-  it('has tagline', () => {
-    expect(wrapper.find('[data-test="tagline"]')).toHaveLength(1);
+  it('renders children components', () => {
+    expect(
+      wrapper.find('[data-test="children-area"]').text().length
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it('has current user name', () => {
@@ -41,7 +43,7 @@ describe('Header Component', () => {
   });
 
   it('has sign out button', () => {
-    expect(wrapper.find('[data-test="logout-btn"]')).toHaveLength(1);
+    expect(wrapper.find('button[data-test="logout-btn"]')).toHaveLength(1);
   });
 
   it('shows the Toggle component', () => {

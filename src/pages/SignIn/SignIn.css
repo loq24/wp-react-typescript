@@ -3,5 +3,5 @@
 .login-form h1{ color: var(--text-color); }
 .login-form .card-body{ background-color: var(--box-bg-color); }
 .login-form .card{ box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2); }
-.vertical-center { min-height: 100%; min-height: 100vh;display: flex; align-items: center; }
+.vertical-center { margin-top: 80px; display: flex; align-items: center; }
 .form-group span.error-text{ font-size: 12px; color: red; margin-left: 10px;}
