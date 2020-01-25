@@ -43,7 +43,7 @@ The app will open in **http://localhost:3000/**
 
 1. Everything is preconfigured except for the database. Replace the database credentials in `wp-config.php`
 2. Activate the plugins that are included in the WP backend
-3. Replace the API configuration found in your `/src/constants/index.ts` file. Make sure to replace the `baseUri` value with your API's url.
+3. Replace the API configuration found in your `/src/constants/index.ts` file. Make sure to replace the `baseUri` value with your WP API's url.
 
 This app is also fully tested. To check the test status run:
 
