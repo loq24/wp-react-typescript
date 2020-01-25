@@ -13,9 +13,12 @@
   <a href="https://github.com/loq24/wp-react-typescript/"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"></a>
 </p>
 
-## About
+## What's included?
 
-This project shows that the Headless Wordpress can be a perfect backend for your React project. It also encourages users to implement `Typescript` especially with `react-redux` library. The project is fully tested using `JEST` & `Enzyme`.
+- A Wordpress backend that's been preconfigured to support authentication using [wp-api-jwt-auth](https://github.com/Tmeister/wp-api-jwt-auth) plugin
+- Other plugins which expose Custom Fields and WP Menus data via REST API. Which are [acf-to-wp-api](https://wordpress.org/plugins/acf-to-wp-api/) and [wp-rest-api-v2-menus](https://wordpress.org/plugins/wp-rest-api-v2-menus/)
+- A pro version of [ACF](https://advancedcustomfields.com/) plugin
+- A sample, starter React app that uses `Typescript` & `react-redux`
 
 ## Demo
 
@@ -33,13 +36,14 @@ cd wp-react-typescript
 yarn install OR npm install
 yarn start OR npm start
 ```
+
 The app will open in **http://localhost:3000/**
 
+<h4>Setting up the included Wordpress backend</h4>
 
-<h4>Setting up your own Wordpress backend</h4>
-
-Install a Wordpress website and make sure that the [JWT Plugin](https://github.com/Tmeister/wp-api-jwt-auth) is installed and activated. The plugin has a detailed instruction on it's [github](https://github.com/Tmeister/wp-api-jwt-auth) page. 
-Replace the API configuration found in your `/src/constants/index.ts` file. Make sure to replace the `baseUri` value with your API's url. 
+1. Everything is preconfigured except for the database. Set up the database just like setting up a normal WP website.
+2. Activate the plugins that are included in the WP backend
+3. Replace the API configuration found in your `/src/constants/index.ts` file. Make sure to replace the `baseUri` value with your API's url.
 
 This app is also fully tested. To check the test status run:
 
