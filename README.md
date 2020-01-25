@@ -41,7 +41,7 @@ The app will open in **http://localhost:3000/**
 
 <h4>Setting up the included Wordpress backend</h4>
 
-1. Everything is preconfigured except for the database. Set up the database just like setting up a normal WP website.
+1. Everything is preconfigured except for the database. Replace the database credentials in `wp-config.php`
 2. Activate the plugins that are included in the WP backend
 3. Replace the API configuration found in your `/src/constants/index.ts` file. Make sure to replace the `baseUri` value with your API's url.
 
