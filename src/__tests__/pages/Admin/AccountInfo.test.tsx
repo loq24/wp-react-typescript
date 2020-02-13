@@ -1,6 +1,6 @@
 import { ReactWrapper } from 'enzyme';
 import { mountByRouter } from 'utils/helpers';
-import AccountInfo from 'pages/admin/AccountInfo';
+import AccountInfo from 'pages/Admin/AccountInfo';
 import { User } from 'actions';
 
 describe('AccountInfo component', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import Root from 'Root';
-import Admin from 'pages/admin/Admin';
+import Admin from 'pages/Admin/Admin';
 import { FormValues } from 'actions';
 import { MemoryRouter } from 'react-router-dom';
 

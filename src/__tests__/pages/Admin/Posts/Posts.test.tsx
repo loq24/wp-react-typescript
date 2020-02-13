@@ -1,10 +1,10 @@
 import React from 'react';
 import { mountByRouter } from 'utils/helpers';
-import Posts from 'pages/admin/Posts/Posts';
+import Posts from 'pages/Admin/Posts/Posts';
 import { ReactWrapper } from 'enzyme';
 import { Post } from 'actions';
 import Placeholder from 'components/Placeholder/Placeholder';
-import Item from 'pages/admin/Posts/Item';
+import Item from 'pages/Admin/Posts/Item';
 import moxios from 'moxios';
 
 describe('Posts Component', () => {

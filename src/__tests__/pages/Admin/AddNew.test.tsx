@@ -1,5 +1,5 @@
 import React from 'react';
-import AddNew from 'pages/admin/AddNew/AddNew';
+import AddNew from 'pages/Admin/AddNew/AddNew';
 import { mountByRouter } from 'utils/helpers';
 import { ReactWrapper } from 'enzyme';
 

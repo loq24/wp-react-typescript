@@ -1,7 +1,7 @@
 import { ReactWrapper } from 'enzyme';
 import Header from 'components/Header';
 import SidebarNav from 'components/SidebarNav/SidebarNav';
-import Introduction from 'pages/admin/Introduction';
+import Introduction from 'pages/Admin/Introduction';
 import { mountByRouter } from 'utils/helpers';
 
 describe('Admin component', () => {
