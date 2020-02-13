@@ -1,4 +1,3 @@
-import React from 'react';
 import Edit from 'pages/Admin/Post/Edit/Edit';
 import EditForm from 'pages/Admin/Post/Edit/EditForm';
 import { mountByRouter } from 'utils/helpers';

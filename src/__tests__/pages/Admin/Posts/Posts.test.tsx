@@ -1,4 +1,3 @@
-import React from 'react';
 import { mountByRouter } from 'utils/helpers';
 import Posts from 'pages/Admin/Posts/Posts';
 import { ReactWrapper } from 'enzyme';
