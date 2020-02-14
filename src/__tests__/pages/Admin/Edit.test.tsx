@@ -1,6 +1,6 @@
 import Edit from 'pages/Admin/Post/Edit/Edit';
 import EditForm from 'pages/Admin/Post/Edit/EditForm';
-import { mountByRouter } from 'utils/helpers';
+import { mountByRouter } from 'utils/mock_helpers';
 import { ReactWrapper } from 'enzyme';
 import moxios from 'moxios';
 import { Post } from 'actions';

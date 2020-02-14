@@ -1,4 +1,4 @@
-import { mountByRouter } from 'utils/helpers';
+import { mountByRouter } from 'utils/mock_helpers';
 import Posts from 'pages/Admin/Posts/Posts';
 import { ReactWrapper } from 'enzyme';
 import { Post } from 'actions';
