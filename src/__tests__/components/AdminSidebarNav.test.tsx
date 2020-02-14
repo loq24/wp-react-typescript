@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import SidebarNav from 'components/SidebarNav/SidebarNav';
+import AdminSidebarNav from 'components/AdminSidebarNav/AdminSidebarNav';
 
 describe('SidebarNav component', () => {
   let wrapper: ShallowWrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<SidebarNav basePath="/" pathName="/" />);
+    wrapper = shallow(<AdminSidebarNav basePath="/" pathName="/" />);
   });
 
   it('shows an active menu', () => {

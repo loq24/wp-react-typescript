@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from 'components/Header';
+import AdminHeader from 'components/AdminHeader';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { User } from 'actions';
 import Toggle from 'components/Toggle/Toggle';
@@ -13,7 +13,9 @@ describe('Header Component', () => {
     url: 'https://lougiequisel.com'
   };
   beforeEach(() => {
-    wrapper = shallow(<Header currentUser={mockUser} unAuthUser={() => {}} />);
+    wrapper = shallow(
+      <AdminHeader currentUser={mockUser} unAuthUser={() => {}} />
+    );
   });
 
   it('has tagline', () => {

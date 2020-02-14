@@ -1,8 +1,8 @@
 import { ReactWrapper } from 'enzyme';
-import Header from 'components/Header';
-import SidebarNav from 'components/SidebarNav/SidebarNav';
+import AdminHeader from 'components/AdminHeader';
+import AdminSidebarNav from 'components/AdminSidebarNav/AdminSidebarNav';
 import Introduction from 'pages/Admin/Introduction';
-import { mountByRouter } from 'utils/helpers';
+import { mountByRouter } from 'utils/mock_helpers';
 
 describe('Admin component', () => {
   let wrapper: ReactWrapper;
@@ -15,11 +15,11 @@ describe('Admin component', () => {
   });
 
   it('displays the header component', () => {
-    expect(wrapper.find(Header)).toHaveLength(1);
+    expect(wrapper.find(AdminHeader)).toHaveLength(1);
   });
 
   it('displays the sidebar nav component', () => {
-    expect(wrapper.find(SidebarNav)).toHaveLength(1);
+    expect(wrapper.find(AdminSidebarNav)).toHaveLength(1);
   });
 
   it('shows the Introduction page by default', () => {

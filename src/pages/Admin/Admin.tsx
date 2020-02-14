@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Header from '../../components/Header';
-import SidebarNav from 'components/SidebarNav/SidebarNav';
+import AdminHeader from '../../components/AdminHeader';
+import AdminSidebarNav from 'components/AdminSidebarNav/AdminSidebarNav';
 import { Route, useLocation } from 'react-router-dom';
 import Introduction from './Introduction';
 import Posts from './Posts/Posts';
@@ -12,7 +12,11 @@ import { currentUserSelector } from 'selectors';
 import { unAuthUser } from 'actions';
 import './Admin.css';
 
-const Admin: React.FC = () => {
+type AdminProps = {
+  basePath: string;
+};
+
+const Admin: React.FC<AdminProps> = ({ basePath }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(currentUserSelector);
   const { pathname } = useLocation();
@@ -23,15 +27,15 @@ const Admin: React.FC = () => {
 
   return (
     <div className="dashboard">
-      <Header currentUser={currentUser} unAuthUser={unAuthUserCallback} />
+      <AdminHeader currentUser={currentUser} unAuthUser={unAuthUserCallback} />
       <div className="admin-content">
-        <SidebarNav basePath="/" pathName={pathname} />
+        <AdminSidebarNav basePath={basePath} pathName={pathname} />
         <div className="container-fluid">
-          <Route path="/" exact component={Introduction} />
-          <Route path="/posts" component={Posts} />
-          <Route path="/post/edit/:id" component={Edit} />
-          <Route path="/add-new" component={AddNew} />
-          <Route path="/account" component={AccountInfo} />
+          <Route path={basePath} exact component={Introduction} />
+          <Route path={`${basePath}/posts`} component={Posts} />
+          <Route path={`${basePath}/post/edit/:id`} component={Edit} />
+          <Route path={`${basePath}/add-new`} component={AddNew} />
+          <Route path={`${basePath}/account`} component={AccountInfo} />
         </div>
       </div>
     </div>
