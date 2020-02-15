@@ -1,10 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { currentUserSelector } from 'selectors';
+import { useWpSelector } from 'selectors';
 
 const AccountInfo = () => {
-  const currentUser = useSelector(currentUserSelector);
+  const { currentUser } = useWpSelector();
 
   return (
     <>

@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
 import { AppState } from 'reducers';
 
-export const authSelector = (state: AppState) => state.auth.authenticated;
+export const useAuthSelector = () =>
+  useSelector((state: AppState) => state.auth);

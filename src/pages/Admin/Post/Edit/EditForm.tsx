@@ -8,9 +8,9 @@ import {
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updatePost, Post } from 'actions';
-import { successMsgSelector } from 'selectors';
+import { useMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
 interface EditFormValues {
@@ -25,13 +25,13 @@ type EditFormProps = {
 
 const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
   const dispatch = useDispatch();
-  const successMsg = useSelector(successMsgSelector);
+  const { success } = useMsgSelector();
 
   return (
     <>
-      {successMsg && (
+      {success && (
         <Alert variant="success" data-test="edit-successful-msg">
-          {successMsg}
+          {success}
         </Alert>
       )}
       <Formik

@@ -8,9 +8,9 @@ import {
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { publishPost, NewPostData } from 'actions';
-import { successMsgSelector } from 'selectors';
+import { useMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
 const initialValues: NewPostData = {
@@ -21,13 +21,13 @@ const initialValues: NewPostData = {
 
 const AddNewForm: React.FC = () => {
   const dispatch = useDispatch();
-  const successMsg = useSelector(successMsgSelector);
+  const { success } = useMsgSelector();
 
   return (
     <>
-      {successMsg && (
+      {success && (
         <Alert data-test="add-successful-msg" variant="success">
-          {successMsg}
+          {success}
         </Alert>
       )}
       <Formik

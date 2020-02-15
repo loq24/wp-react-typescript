@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AdminHeader from '../../components/AdminHeader';
 import AdminSidebarNav from 'components/AdminSidebarNav/AdminSidebarNav';
 import { Route, useLocation } from 'react-router-dom';
@@ -8,7 +8,7 @@ import Posts from './Posts/Posts';
 import Edit from './Post/Edit/Edit';
 import AddNew from './AddNew/AddNew';
 import AccountInfo from './AccountInfo';
-import { currentUserSelector } from 'selectors';
+import { useWpSelector } from 'selectors';
 import { unAuthUser } from 'actions';
 import './Admin.css';
 
@@ -18,7 +18,7 @@ type AdminProps = {
 
 const Admin: React.FC<AdminProps> = ({ basePath }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector(currentUserSelector);
+  const { currentUser } = useWpSelector();
   const { pathname } = useLocation();
 
   const unAuthUserCallback = React.useCallback(() => {

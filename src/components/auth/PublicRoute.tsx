@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authSelector } from 'selectors';
+import { useAuthSelector } from 'selectors';
 
 interface PublicRouteProps extends RouteProps {
   children: React.ReactNode;
@@ -10,16 +9,16 @@ interface PublicRouteProps extends RouteProps {
 
 const PublicRoute: React.FC<PublicRouteProps> = ({
   children,
-  defaultPath = '/',
+  defaultPath = '/admin',
   ...rest
 }) => {
-  const isAuthenticated = useSelector(authSelector);
+  const { authenticated } = useAuthSelector();
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        !isAuthenticated ? (
+        !authenticated ? (
           children
         ) : (
           <Redirect

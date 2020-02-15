@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { postsSelector, warningMsgSelector } from 'selectors';
+import { useDispatch } from 'react-redux';
+import { useMsgSelector, useWpSelector } from 'selectors';
 import { Post, fetchPosts, deletePost } from 'actions';
 import Item from './Item';
 import Placeholder from 'components/Placeholder/Placeholder';
@@ -13,8 +13,8 @@ const Posts: React.FC = () => {
   const [isDeleting, setDeletingStatus] = useState(false);
 
   const dispatch = useDispatch();
-  const posts = useSelector(postsSelector);
-  const warningMsg = useSelector(warningMsgSelector);
+  const { posts } = useWpSelector();
+  const { warning } = useMsgSelector();
 
   const onDeletePost = React.useCallback((id: number) => {
     setModalStatus(true);
@@ -79,7 +79,7 @@ const Posts: React.FC = () => {
         onClose={() => setWarningMsgStatus(false)}
         dismissible
       >
-        {warningMsg}
+        {warning}
       </Alert>
     );
   };
@@ -91,7 +91,7 @@ const Posts: React.FC = () => {
   return (
     <div className="posts-content">
       <h1>All Posts</h1>
-      {warningMsg && warningMsgStatus && renderWarningMsg()}
+      {warning && warningMsgStatus && renderWarningMsg()}
       <div className="mt-3">
         {renderModal()}
         {posts.length > 0 ? renderPosts(posts) : <Placeholder />}
