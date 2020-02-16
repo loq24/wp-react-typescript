@@ -11,7 +11,7 @@ export const mountByRouter = (
   return mount(
     <Root initialState={initialState}>
       <MemoryRouter initialEntries={[path]}>
-        <Admin basePath={path} />
+        <Admin />
       </MemoryRouter>
     </Root>
   );

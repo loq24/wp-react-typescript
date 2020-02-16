@@ -12,11 +12,7 @@ import { useWpSelector } from 'selectors';
 import { unAuthUser } from 'actions';
 import './Admin.css';
 
-type AdminProps = {
-  basePath: string;
-};
-
-const Admin: React.FC<AdminProps> = ({ basePath }) => {
+const Admin: React.FC = () => {
   const dispatch = useDispatch();
   const { currentUser } = useWpSelector();
   const { pathname } = useLocation();
@@ -31,11 +27,11 @@ const Admin: React.FC<AdminProps> = ({ basePath }) => {
       <div className="admin-content">
         <AdminSidebarNav pathName={pathname} />
         <div className="container-fluid">
-          <Route path={basePath} exact component={Introduction} />
-          <Route path={`${basePath}posts`} component={Posts} />
-          <Route path={`${basePath}post/edit/:id`} component={Edit} />
-          <Route path={`${basePath}add-new`} component={AddNew} />
-          <Route path={`${basePath}account`} component={AccountInfo} />
+          <Route path="/" exact component={Introduction} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/post/edit/:id" component={Edit} />
+          <Route path="/add-new" component={AddNew} />
+          <Route path="account" component={AccountInfo} />
         </div>
       </div>
     </div>

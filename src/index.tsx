@@ -17,7 +17,7 @@ ReactDOM.render(
           <SignIn />
         </PublicRoute>
         <PrivateRoute path="/">
-          <Admin basePath="/" />
+          <Admin />
         </PrivateRoute>
       </Switch>
     </BrowserRouter>
