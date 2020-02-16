@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMsgSelector, useWpSelector } from 'selectors';
-import { Post, fetchPosts, deletePost } from 'actions';
-import Item from './Item';
+import { fetchPosts, deletePost } from 'actions';
 import Placeholder from 'components/Placeholder/Placeholder';
-import { Modal, Button, Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
+import PostModal from './PostModal';
+import PostList from './PostList';
 
 const Posts: React.FC = () => {
   const [modalStatus, setModalStatus] = useState(false);
@@ -33,55 +34,8 @@ const Posts: React.FC = () => {
     setModalStatus(false);
   };
 
-  const renderModal = (): JSX.Element => {
-    return (
-      <Modal
-        data-test="delete-modal"
-        show={modalStatus}
-        onHide={() => setModalStatus(false)}
-      >
-        <Modal.Header>Confirmation</Modal.Header>
-        <Modal.Body>Do you really want to delete this post?</Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="link"
-            className="text-danger"
-            onClick={handlePostDeletion}
-          >
-            Yes
-          </Button>
-          <Button variant="primary" onClick={() => setModalStatus(false)}>
-            No
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  };
-
-  const renderPosts = (posts: Post[]): JSX.Element[] => {
-    return posts.map((post: Post, i: number) => {
-      return (
-        <Item
-          post={post}
-          key={i}
-          onDeletePost={onDeletePost}
-          postToDelete={postToDelete}
-          isDeleting={isDeleting}
-        />
-      );
-    });
-  };
-
-  const renderWarningMsg = (): JSX.Element => {
-    return (
-      <Alert
-        variant="warning"
-        onClose={() => setWarningMsgStatus(false)}
-        dismissible
-      >
-        {warning}
-      </Alert>
-    );
+  const hideModal = () => {
+    setModalStatus(false);
   };
 
   useEffect(() => {
@@ -91,10 +45,31 @@ const Posts: React.FC = () => {
   return (
     <div className="posts-content">
       <h1>All Posts</h1>
-      {warning && warningMsgStatus && renderWarningMsg()}
+      {warning && warningMsgStatus && (
+        <Alert
+          variant="warning"
+          onClose={() => setWarningMsgStatus(false)}
+          dismissible
+        >
+          {warning}
+        </Alert>
+      )}
       <div className="mt-3">
-        {renderModal()}
-        {posts.length > 0 ? renderPosts(posts) : <Placeholder />}
+        {posts.length > 0 ? (
+          <PostList
+            posts={posts}
+            onDeletePost={onDeletePost}
+            postToDelete={postToDelete}
+            isDeleting={isDeleting}
+          />
+        ) : (
+          <Placeholder />
+        )}
+        <PostModal
+          isOpen={modalStatus}
+          hideModal={hideModal}
+          handlePostDeletion={handlePostDeletion}
+        />
       </div>
     </div>
   );
