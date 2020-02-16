@@ -5,7 +5,7 @@ import Admin from 'pages/Admin/Admin';
 import { MemoryRouter } from 'react-router-dom';
 
 export const mountByRouter = (
-  path: string = '/admin',
+  path: string = '/',
   initialState = {}
 ): ReactWrapper => {
   return mount(

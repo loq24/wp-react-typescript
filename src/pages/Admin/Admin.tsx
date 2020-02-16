@@ -29,13 +29,13 @@ const Admin: React.FC<AdminProps> = ({ basePath }) => {
     <div className="dashboard">
       <AdminHeader currentUser={currentUser} unAuthUser={unAuthUserCallback} />
       <div className="admin-content">
-        <AdminSidebarNav basePath={basePath} pathName={pathname} />
+        <AdminSidebarNav pathName={pathname} />
         <div className="container-fluid">
           <Route path={basePath} exact component={Introduction} />
-          <Route path={`${basePath}/posts`} component={Posts} />
-          <Route path={`${basePath}/post/edit/:id`} component={Edit} />
-          <Route path={`${basePath}/add-new`} component={AddNew} />
-          <Route path={`${basePath}/account`} component={AccountInfo} />
+          <Route path={`${basePath}posts`} component={Posts} />
+          <Route path={`${basePath}post/edit/:id`} component={Edit} />
+          <Route path={`${basePath}add-new`} component={AddNew} />
+          <Route path={`${basePath}account`} component={AccountInfo} />
         </div>
       </div>
     </div>

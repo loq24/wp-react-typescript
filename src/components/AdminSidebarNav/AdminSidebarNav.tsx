@@ -5,33 +5,32 @@ import './AdminSidebarNav.css';
 
 type SidebarNavProps = {
   pathName: string;
-  basePath: string;
 };
 
-const SidebarNav: React.FC<SidebarNavProps> = ({ pathName, basePath }) => {
+const SidebarNav: React.FC<SidebarNavProps> = ({ pathName }) => {
   return (
     <div className="sidebar-nav">
       <Nav variant="pills" className="flex-column">
         <NavItem
-          toPath={basePath}
+          toPath="/"
           linkText="Dashboard"
           curPathName={pathName}
           iconClass="fa-dashboard"
         />
         <NavItem
-          toPath={`${basePath}/posts`}
+          toPath="/posts"
           linkText="Posts"
           curPathName={pathName}
           iconClass="fa-newspaper-o"
         />
         <NavItem
-          toPath={`${basePath}/add-new`}
+          toPath="/add-new"
           linkText="Add New"
           curPathName={pathName}
           iconClass="fa-file"
         />
         <NavItem
-          toPath={`${basePath}/account`}
+          toPath="/account"
           linkText="Account Info"
           curPathName={pathName}
           iconClass="fa-info"

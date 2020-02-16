@@ -9,7 +9,7 @@ interface PublicRouteProps extends RouteProps {
 
 const PublicRoute: React.FC<PublicRouteProps> = ({
   children,
-  defaultPath = '/admin',
+  defaultPath = '/',
   ...rest
 }) => {
   const { authenticated } = useAuthSelector();
