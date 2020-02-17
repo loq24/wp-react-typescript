@@ -31,7 +31,7 @@ const Admin: React.FC = () => {
           <Route path="/posts" component={Posts} />
           <Route path="/post/edit/:id" component={Edit} />
           <Route path="/add-new" component={AddNew} />
-          <Route path="account" component={AccountInfo} />
+          <Route path="/account" component={AccountInfo} />
         </div>
       </div>
     </div>
