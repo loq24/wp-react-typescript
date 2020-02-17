@@ -8,61 +8,54 @@ import {
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
-import { updatePost, Post } from 'actions';
-import { successMsgSelector } from 'selectors';
+import { useDispatch } from 'react-redux';
+import { publishPost, NewPostData } from 'actions';
+import { useMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
-interface EditFormValues {
-  title: string;
-  content: string;
-}
-
-type EditFormProps = {
-  id: string;
-  post?: Post;
+const initialValues: NewPostData = {
+  title: '',
+  content: '',
+  status: 'publish'
 };
 
-const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
+const AddNewForm: React.FC = () => {
   const dispatch = useDispatch();
-  const successMsg = useSelector(successMsgSelector);
+  const { success } = useMsgSelector();
 
   return (
     <>
-      {successMsg && (
-        <Alert variant="success" data-test="edit-successful-msg">
-          {successMsg}
+      {success && (
+        <Alert data-test="add-successful-msg" variant="success">
+          {success}
         </Alert>
       )}
       <Formik
-        initialValues={{
-          title: post ? post.title.rendered : '',
-          content: post ? post.content.rendered : ''
-        }}
+        initialValues={initialValues}
         enableReinitialize={true}
         onSubmit={(
-          values: EditFormValues,
-          actions: FormikActions<EditFormValues>
+          values: NewPostData,
+          actions: FormikActions<NewPostData>
         ) => {
           dispatch(
-            updatePost(id, values, () => {
+            publishPost(values, () => {
               actions.setSubmitting(false);
             })
           );
         }}
         validationSchema={SignFormSchemaValidation}
-        render={({ isSubmitting }: FormikProps<EditFormValues>) => (
+        render={({ isSubmitting }: FormikProps<NewPostData>) => (
           <FormikForm>
             <Field
               type="text"
               name="title"
-              placeholder="..."
+              placeholder="Title..."
               component={FormField}
             />
             <Field
-              type="textarea"
               name="content"
-              placeholder="..."
+              type="textarea"
+              placeholder="Content..."
               component={FormField}
             />
             <Form.Group>
@@ -76,7 +69,7 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
                     Loading...
                   </>
                 ) : (
-                  'Update'
+                  'Publish'
                 )}
               </Button>
             </Form.Group>
@@ -92,4 +85,4 @@ const SignFormSchemaValidation = object().shape({
   content: string().required('This field is required.')
 });
 
-export default EditForm;
+export default AddNewForm;

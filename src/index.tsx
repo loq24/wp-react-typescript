@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch } from 'react-router-dom';
-import Admin from 'pages/admin/Admin';
+import Admin from 'pages/Admin/Admin';
 import SignIn from 'pages/SignIn/SignIn';
 import PrivateRoute from 'components/auth/PrivateRoute';
 import PublicRoute from 'components/auth/PublicRoute';

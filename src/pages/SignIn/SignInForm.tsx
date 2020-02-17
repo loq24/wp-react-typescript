@@ -8,9 +8,9 @@ import {
 } from 'formik';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { string, object } from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { authUser, fetchCurrentUser, FormValues } from 'actions';
-import { warningMsgSelector, successMsgSelector } from 'selectors';
+import { useMsgSelector } from 'selectors';
 import FormField from 'components/FormField';
 
 type SignInFormProps = {
@@ -19,8 +19,7 @@ type SignInFormProps = {
 
 const SignInForm = ({ accessValues }: SignInFormProps) => {
   const dispatch = useDispatch();
-  const warningMsg = useSelector(warningMsgSelector);
-  const successMsg = useSelector(successMsgSelector);
+  const { success, warning } = useMsgSelector();
 
   const handleSubmit = (
     values: FormValues,
@@ -36,14 +35,14 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
 
   return (
     <>
-      {warningMsg && (
+      {warning && (
         <Alert data-test="warning-msg" variant="warning">
-          {warningMsg}
+          {warning}
         </Alert>
       )}
-      {successMsg && (
+      {success && (
         <Alert variant="success" data-test="ty-msg">
-          {successMsg}
+          {success}
         </Alert>
       )}
       <Formik

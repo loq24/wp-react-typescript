@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import Introduction from 'pages/admin/Introduction';
+import Introduction from 'pages/Admin/Introduction';
 import { Jumbotron } from 'react-bootstrap';
 
 describe('Introduction component', () => {

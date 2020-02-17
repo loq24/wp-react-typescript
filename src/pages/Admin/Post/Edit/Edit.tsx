@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { match } from 'react-router-dom';
 import EditForm from './EditForm';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchPost } from 'actions';
-import { postSelector } from 'selectors';
+import { useWpSelector } from 'selectors';
 
 type Param = {
   id: string;
@@ -16,7 +16,7 @@ type EditProps = {
 const Edit: React.FC<EditProps> = ({ match }) => {
   const { params } = match;
   const dispatch = useDispatch();
-  const post = useSelector(postSelector);
+  const { post } = useWpSelector();
 
   useEffect(() => {
     dispatch(fetchPost(params.id));

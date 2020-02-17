@@ -1,19 +1,15 @@
 import React from 'react';
-import Header from 'components/Header';
+import AdminHeader from 'components/AdminHeader';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { User } from 'actions';
 import Toggle from 'components/Toggle/Toggle';
+import { mockUser } from 'utils/mock_helpers';
 
 describe('Header Component', () => {
   let wrapper: ShallowWrapper;
-  let mockUser: User = {
-    id: 1,
-    name: 'Test User',
-    description: 'This is a test user',
-    url: 'https://lougiequisel.com'
-  };
   beforeEach(() => {
-    wrapper = shallow(<Header currentUser={mockUser} unAuthUser={() => {}} />);
+    wrapper = shallow(
+      <AdminHeader currentUser={mockUser} unAuthUser={() => {}} />
+    );
   });
 
   it('has tagline', () => {
