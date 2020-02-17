@@ -18,7 +18,6 @@ const NavItem: React.FC<NavItemProps> = ({
     <Link
       to={toPath}
       className={curPathName === toPath ? `nav-link active` : `nav-link`}
-      data-test="dashboard-link"
     >
       <i className={`fa fa-fw ${iconClass}`} /> <span>{linkText}</span>
     </Link>

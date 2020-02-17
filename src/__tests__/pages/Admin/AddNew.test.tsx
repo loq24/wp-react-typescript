@@ -1,5 +1,5 @@
 import AddNew from 'pages/Admin/AddNew/AddNew';
-import { mountByRouter } from 'utils/helpers';
+import { mountByRouter } from 'utils/mock_helpers';
 import { ReactWrapper } from 'enzyme';
 
 describe('AddNew Component', () => {

@@ -1,14 +1,14 @@
-import { mountByRouter } from 'utils/mock_helpers';
+import { mountByRouter, mockPosts } from 'utils/mock_helpers';
 import Posts from 'pages/Admin/Posts/Posts';
 import { ReactWrapper } from 'enzyme';
-import { Post } from 'actions';
 import Placeholder from 'components/Placeholder/Placeholder';
+import PostList from 'pages/Admin/Posts/PostList';
 import Item from 'pages/Admin/Posts/Item';
+import PostModal from 'pages/Admin/Posts/PostModal';
 import moxios from 'moxios';
 
 describe('Posts Component', () => {
   let wrapper: ReactWrapper;
-  let mockPosts: Post[];
   const path = '/posts';
   beforeEach(() => {
     moxios.install();
@@ -28,40 +28,23 @@ describe('Posts Component', () => {
   });
 
   describe('Fetching posts', () => {
-    beforeEach(() => {
-      mockPosts = [
-        {
-          id: 1,
-          title: {
-            rendered: 'Mock Title 1'
-          },
-          content: {
-            rendered: 'Mock Content 1'
-          },
-          excerpt: {
-            rendered: 'Mock Excerpt 1'
-          },
-          modified: '2019-09-10T21:37:06',
-          date: '2019-09-10T21:37:069'
-        },
-        {
-          id: 2,
-          title: {
-            rendered: 'Mock Title 2'
-          },
-          content: {
-            rendered: 'Mock Content 2'
-          },
-          excerpt: {
-            rendered: 'Mock Excerpt 2'
-          },
-          modified: '2019-09-10T21:37:06',
-          date: '2019-09-10T21:37:069'
-        }
-      ];
+    it('shows the PostList component when the posts are loaded', done => {
+      moxios.wait(function() {
+        let request = moxios.requests.mostRecent();
+        request
+          .respondWith({
+            status: 200,
+            response: mockPosts
+          })
+          .then(function() {
+            wrapper.update();
+            expect(wrapper.find(PostList)).toHaveLength(1);
+            done();
+          });
+      });
     });
 
-    it('can fetch posts and display each in an Item component', done => {
+    it('shows Post Items when the posts are loaded', done => {
       moxios.wait(function() {
         let request = moxios.requests.mostRecent();
         request
@@ -91,9 +74,7 @@ describe('Posts Component', () => {
               .find('button[data-test="delete-post-btn"]')
               .first()
               .simulate('click');
-            expect(wrapper.find('div[data-test="delete-modal"]')).toHaveLength(
-              1
-            );
+            expect(wrapper.find(PostModal)).toHaveLength(1);
             done();
           });
       });
