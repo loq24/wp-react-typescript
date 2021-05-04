@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   Formik,
-  FormikActions,
+  FormikHelpers,
   FormikProps,
   Form as FormikForm,
   Field
-} from 'formik';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { string, object } from 'yup';
-import { useDispatch } from 'react-redux';
-import { authUser, fetchCurrentUser, FormValues } from 'actions';
-import { useMsgSelector } from 'selectors';
-import FormField from 'components/FormField';
+} from "formik";
+import { Form, Button, Alert } from "react-bootstrap";
+import { string, object } from "yup";
+import { useDispatch } from "react-redux";
+import { authUser, fetchCurrentUser, FormValues } from "actions";
+import { useMsgSelector } from "selectors";
+import FormField from "components/FormField";
 
 type SignInFormProps = {
   accessValues: FormValues;
@@ -23,7 +23,7 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
 
   const handleSubmit = (
     values: FormValues,
-    actions: FormikActions<FormValues>
+    actions: FormikHelpers<FormValues>
   ): void => {
     dispatch(
       authUser(values, () => {
@@ -74,7 +74,7 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
                     Loading...
                   </>
                 ) : (
-                  'Sign In'
+                  "Sign In"
                 )}
               </Button>
             </Form.Group>
@@ -86,8 +86,8 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
 };
 
 const SignFormSchemaValidation = object().shape({
-  username: string().required('This field is required.'),
-  password: string().required('This field is required.')
+  username: string().required("This field is required."),
+  password: string().required("This field is required.")
 });
 
 export default SignInForm;

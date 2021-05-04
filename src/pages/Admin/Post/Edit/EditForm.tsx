@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   Formik,
-  FormikActions,
+  FormikHelpers,
   FormikProps,
   Form as FormikForm,
   Field
-} from 'formik';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { string, object } from 'yup';
-import { useDispatch } from 'react-redux';
-import { updatePost, Post } from 'actions';
-import { useMsgSelector } from 'selectors';
-import FormField from 'components/FormField';
+} from "formik";
+import { Form, Button, Alert } from "react-bootstrap";
+import { string, object } from "yup";
+import { useDispatch } from "react-redux";
+import { updatePost, Post } from "actions";
+import { useMsgSelector } from "selectors";
+import FormField from "components/FormField";
 
 interface EditFormValues {
   title: string;
@@ -36,13 +36,13 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
       )}
       <Formik
         initialValues={{
-          title: post ? post.title.rendered : '',
-          content: post ? post.content.rendered : ''
+          title: post ? post.title.rendered : "",
+          content: post ? post.content.rendered : ""
         }}
         enableReinitialize={true}
         onSubmit={(
           values: EditFormValues,
-          actions: FormikActions<EditFormValues>
+          actions: FormikHelpers<EditFormValues>
         ) => {
           dispatch(
             updatePost(id, values, () => {
@@ -76,7 +76,7 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
                     Loading...
                   </>
                 ) : (
-                  'Update'
+                  "Update"
                 )}
               </Button>
             </Form.Group>
@@ -88,8 +88,8 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
 };
 
 const SignFormSchemaValidation = object().shape({
-  title: string().required('This field is required.'),
-  content: string().required('This field is required.')
+  title: string().required("This field is required."),
+  content: string().required("This field is required.")
 });
 
 export default EditForm;

@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
   Formik,
-  FormikActions,
+  FormikHelpers,
   FormikProps,
   Form as FormikForm,
   Field
-} from 'formik';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { string, object } from 'yup';
-import { useDispatch } from 'react-redux';
-import { publishPost, NewPostData } from 'actions';
-import { useMsgSelector } from 'selectors';
-import FormField from 'components/FormField';
+} from "formik";
+import { Form, Button, Alert } from "react-bootstrap";
+import { string, object } from "yup";
+import { useDispatch } from "react-redux";
+import { publishPost, NewPostData } from "actions";
+import { useMsgSelector } from "selectors";
+import FormField from "components/FormField";
 
 const initialValues: NewPostData = {
-  title: '',
-  content: '',
-  status: 'publish'
+  title: "",
+  content: "",
+  status: "publish"
 };
 
 const AddNewForm: React.FC = () => {
@@ -35,7 +35,7 @@ const AddNewForm: React.FC = () => {
         enableReinitialize={true}
         onSubmit={(
           values: NewPostData,
-          actions: FormikActions<NewPostData>
+          actions: FormikHelpers<NewPostData>
         ) => {
           dispatch(
             publishPost(values, () => {
@@ -69,7 +69,7 @@ const AddNewForm: React.FC = () => {
                     Loading...
                   </>
                 ) : (
-                  'Publish'
+                  "Publish"
                 )}
               </Button>
             </Form.Group>
@@ -81,8 +81,8 @@ const AddNewForm: React.FC = () => {
 };
 
 const SignFormSchemaValidation = object().shape({
-  title: string().required('This field is required.'),
-  content: string().required('This field is required.')
+  title: string().required("This field is required."),
+  content: string().required("This field is required.")
 });
 
 export default AddNewForm;
