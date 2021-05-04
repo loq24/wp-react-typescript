@@ -1,22 +1,16 @@
-import React from 'react';
-import {
-  Formik,
-  FormikActions,
-  FormikProps,
-  Form as FormikForm,
-  Field
-} from 'formik';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { string, object } from 'yup';
-import { useDispatch } from 'react-redux';
-import { publishPost, NewPostData } from 'actions';
-import { useMsgSelector } from 'selectors';
-import FormField from 'components/FormField';
+import React from "react";
+import { Formik, FormikHelpers, Form as FormikForm, Field } from "formik";
+import { Form, Button, Alert } from "react-bootstrap";
+import { string, object } from "yup";
+import { useDispatch } from "react-redux";
+import { publishPost, NewPostData } from "actions";
+import { useMsgSelector } from "selectors";
+import FormField from "components/FormField";
 
 const initialValues: NewPostData = {
-  title: '',
-  content: '',
-  status: 'publish'
+  title: "",
+  content: "",
+  status: "publish"
 };
 
 const AddNewForm: React.FC = () => {
@@ -35,7 +29,7 @@ const AddNewForm: React.FC = () => {
         enableReinitialize={true}
         onSubmit={(
           values: NewPostData,
-          actions: FormikActions<NewPostData>
+          actions: FormikHelpers<NewPostData>
         ) => {
           dispatch(
             publishPost(values, () => {
@@ -44,7 +38,8 @@ const AddNewForm: React.FC = () => {
           );
         }}
         validationSchema={SignFormSchemaValidation}
-        render={({ isSubmitting }: FormikProps<NewPostData>) => (
+      >
+        {({ isSubmitting }) => (
           <FormikForm>
             <Field
               type="text"
@@ -69,20 +64,20 @@ const AddNewForm: React.FC = () => {
                     Loading...
                   </>
                 ) : (
-                  'Publish'
+                  "Publish"
                 )}
               </Button>
             </Form.Group>
           </FormikForm>
         )}
-      />
+      </Formik>
     </>
   );
 };
 
 const SignFormSchemaValidation = object().shape({
-  title: string().required('This field is required.'),
-  content: string().required('This field is required.')
+  title: string().required("This field is required."),
+  content: string().required("This field is required.")
 });
 
 export default AddNewForm;

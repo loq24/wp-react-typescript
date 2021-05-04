@@ -1,17 +1,11 @@
-import React from 'react';
-import {
-  Formik,
-  FormikActions,
-  FormikProps,
-  Form as FormikForm,
-  Field
-} from 'formik';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { string, object } from 'yup';
-import { useDispatch } from 'react-redux';
-import { authUser, fetchCurrentUser, FormValues } from 'actions';
-import { useMsgSelector } from 'selectors';
-import FormField from 'components/FormField';
+import React from "react";
+import { Formik, Form as FormikForm, Field } from "formik";
+import { Form, Button, Alert } from "react-bootstrap";
+import { string, object } from "yup";
+import { useDispatch } from "react-redux";
+import { authUser, fetchCurrentUser, FormValues } from "actions";
+import { useMsgSelector } from "selectors";
+import FormField from "components/FormField";
 
 type SignInFormProps = {
   accessValues: FormValues;
@@ -21,13 +15,9 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
   const dispatch = useDispatch();
   const { success, warning } = useMsgSelector();
 
-  const handleSubmit = (
-    values: FormValues,
-    actions: FormikActions<FormValues>
-  ): void => {
+  const handleSubmit = (values: FormValues): void => {
     dispatch(
       authUser(values, () => {
-        actions.setSubmitting(false);
         dispatch(fetchCurrentUser());
       })
     );
@@ -49,7 +39,8 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
         initialValues={accessValues}
         onSubmit={handleSubmit}
         validationSchema={SignFormSchemaValidation}
-        render={({ isSubmitting }: FormikProps<FormValues>) => (
+      >
+        {({ isSubmitting }) => (
           <FormikForm>
             <Field
               type="text"
@@ -74,20 +65,20 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
                     Loading...
                   </>
                 ) : (
-                  'Sign In'
+                  "Sign In"
                 )}
               </Button>
             </Form.Group>
           </FormikForm>
         )}
-      />
+      </Formik>
     </>
   );
 };
 
 const SignFormSchemaValidation = object().shape({
-  username: string().required('This field is required.'),
-  password: string().required('This field is required.')
+  username: string().required("This field is required."),
+  password: string().required("This field is required.")
 });
 
 export default SignInForm;

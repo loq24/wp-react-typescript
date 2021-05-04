@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useMsgSelector, useWpSelector } from 'selectors';
-import { fetchPosts, deletePost } from 'actions';
-import Placeholder from 'components/Placeholder/Placeholder';
-import { Alert } from 'react-bootstrap';
-import PostModal from './PostModal';
-import PostList from './PostList';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useMsgSelector, useWpSelector } from "selectors";
+import { fetchPosts, deletePost } from "actions";
+import Placeholder from "components/Placeholder/Placeholder";
+import { Alert } from "react-bootstrap";
+import PostModal from "./PostModal";
+import PostList from "./PostList";
 
 const Posts: React.FC = () => {
   const [modalStatus, setModalStatus] = useState(false);
   const [warningMsgStatus, setWarningMsgStatus] = useState(false);
-  const [postToDelete, setPostToDelete] = useState();
+  const [postToDelete, setPostToDelete] = useState(0);
   const [isDeleting, setDeletingStatus] = useState(false);
 
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const Posts: React.FC = () => {
       deletePost(postToDelete, () => {
         setWarningMsgStatus(true);
         setDeletingStatus(false);
-        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+        window.scroll({ top: 0, left: 0, behavior: "smooth" });
       })
     );
     setModalStatus(false);

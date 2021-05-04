@@ -1,17 +1,11 @@
-import React from 'react';
-import {
-  Formik,
-  FormikActions,
-  FormikProps,
-  Form as FormikForm,
-  Field
-} from 'formik';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { string, object } from 'yup';
-import { useDispatch } from 'react-redux';
-import { updatePost, Post } from 'actions';
-import { useMsgSelector } from 'selectors';
-import FormField from 'components/FormField';
+import React from "react";
+import { Formik, FormikHelpers, Form as FormikForm, Field } from "formik";
+import { Form, Button, Alert } from "react-bootstrap";
+import { string, object } from "yup";
+import { useDispatch } from "react-redux";
+import { updatePost, Post } from "actions";
+import { useMsgSelector } from "selectors";
+import FormField from "components/FormField";
 
 interface EditFormValues {
   title: string;
@@ -36,13 +30,13 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
       )}
       <Formik
         initialValues={{
-          title: post ? post.title.rendered : '',
-          content: post ? post.content.rendered : ''
+          title: post ? post.title.rendered : "",
+          content: post ? post.content.rendered : ""
         }}
         enableReinitialize={true}
         onSubmit={(
           values: EditFormValues,
-          actions: FormikActions<EditFormValues>
+          actions: FormikHelpers<EditFormValues>
         ) => {
           dispatch(
             updatePost(id, values, () => {
@@ -51,7 +45,8 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
           );
         }}
         validationSchema={SignFormSchemaValidation}
-        render={({ isSubmitting }: FormikProps<EditFormValues>) => (
+      >
+        {({ isSubmitting }) => (
           <FormikForm>
             <Field
               type="text"
@@ -76,20 +71,20 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
                     Loading...
                   </>
                 ) : (
-                  'Update'
+                  "Update"
                 )}
               </Button>
             </Form.Group>
           </FormikForm>
         )}
-      />
+      </Formik>
     </>
   );
 };
 
 const SignFormSchemaValidation = object().shape({
-  title: string().required('This field is required.'),
-  content: string().required('This field is required.')
+  title: string().required("This field is required."),
+  content: string().required("This field is required.")
 });
 
 export default EditForm;

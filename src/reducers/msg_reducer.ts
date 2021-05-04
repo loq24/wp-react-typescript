@@ -1,36 +1,38 @@
 import {
-	WarningMessageAction,
-	ActionMessagesTypes,
-	ClearMessageAction,
-	SuccessMessageAction,
-	TestingMessageAction
-} from '../actions';
+  WarningMessageAction,
+  ActionMessagesTypes,
+  ClearMessageAction,
+  SuccessMessageAction,
+  TestingMessageAction
+} from "../actions";
 
 type Actions =
-	| WarningMessageAction
-	| ClearMessageAction
-	| SuccessMessageAction
-	| TestingMessageAction;
+  | WarningMessageAction
+  | ClearMessageAction
+  | SuccessMessageAction
+  | TestingMessageAction;
 
 export interface InitialState {
-	warning: string;
-	success: string;
+  warning: string;
+  success: string;
 }
 
 export const initialState: InitialState = {
-	warning: '',
-	success: ''
+  warning: "",
+  success: ""
 };
 
-export default function(state = initialState, action: Actions) {
-	switch (action.type) {
-		case ActionMessagesTypes.warningMsg:
-			return { ...state, warning: action.payload };
-		case ActionMessagesTypes.successMsg:
-			return { ...state, success: action.payload };
-		case ActionMessagesTypes.clearMsg:
-			return initialState;
-		default:
-			return state;
-	}
-}
+const msgReducer = (state = initialState, action: Actions) => {
+  switch (action.type) {
+    case ActionMessagesTypes.warningMsg:
+      return { ...state, warning: action.payload };
+    case ActionMessagesTypes.successMsg:
+      return { ...state, success: action.payload };
+    case ActionMessagesTypes.clearMsg:
+      return initialState;
+    default:
+      return state;
+  }
+};
+
+export default msgReducer;

@@ -1,10 +1,10 @@
-import { ReactWrapper } from 'enzyme';
-import { mountByRouter, mockUser } from 'utils/mock_helpers';
-import AccountInfo from 'pages/Admin/AccountInfo';
+import { ReactWrapper } from "enzyme";
+import { mountByRouter, mockUser } from "utils/mock_helpers";
+import AccountInfo from "pages/Admin/AccountInfo";
 
-describe('AccountInfo component', () => {
+describe("AccountInfo component", () => {
   let wrapper: ReactWrapper;
-  let path = '/account';
+  let path = "/account";
   beforeEach(() => {
     const initialState = {
       wp: {
