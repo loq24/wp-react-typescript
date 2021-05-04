@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, FormikHelpers, Form as FormikForm, Field } from "formik";
+import { Formik, Form as FormikForm, Field } from "formik";
 import { Form, Button, Alert } from "react-bootstrap";
 import { string, object } from "yup";
 import { useDispatch } from "react-redux";
@@ -15,13 +15,9 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
   const dispatch = useDispatch();
   const { success, warning } = useMsgSelector();
 
-  const handleSubmit = (
-    values: FormValues,
-    actions: FormikHelpers<FormValues>
-  ): void => {
+  const handleSubmit = (values: FormValues): void => {
     dispatch(
       authUser(values, () => {
-        actions.setSubmitting(false);
         dispatch(fetchCurrentUser());
       })
     );
