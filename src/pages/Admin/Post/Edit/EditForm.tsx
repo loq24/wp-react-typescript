@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Formik,
-  FormikHelpers,
-  FormikProps,
-  Form as FormikForm,
-  Field
-} from "formik";
+import { Formik, FormikHelpers, Form as FormikForm, Field } from "formik";
 import { Form, Button, Alert } from "react-bootstrap";
 import { string, object } from "yup";
 import { useDispatch } from "react-redux";
@@ -51,7 +45,8 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
           );
         }}
         validationSchema={SignFormSchemaValidation}
-        render={({ isSubmitting }: FormikProps<EditFormValues>) => (
+      >
+        {({ isSubmitting }) => (
           <FormikForm>
             <Field
               type="text"
@@ -82,7 +77,7 @@ const EditForm: React.FC<EditFormProps> = ({ id, post }) => {
             </Form.Group>
           </FormikForm>
         )}
-      />
+      </Formik>
     </>
   );
 };

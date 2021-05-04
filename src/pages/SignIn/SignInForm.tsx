@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Formik,
-  FormikHelpers,
-  FormikProps,
-  Form as FormikForm,
-  Field
-} from "formik";
+import { Formik, FormikHelpers, Form as FormikForm, Field } from "formik";
 import { Form, Button, Alert } from "react-bootstrap";
 import { string, object } from "yup";
 import { useDispatch } from "react-redux";
@@ -49,7 +43,8 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
         initialValues={accessValues}
         onSubmit={handleSubmit}
         validationSchema={SignFormSchemaValidation}
-        render={({ isSubmitting }: FormikProps<FormValues>) => (
+      >
+        {({ isSubmitting }) => (
           <FormikForm>
             <Field
               type="text"
@@ -80,7 +75,7 @@ const SignInForm = ({ accessValues }: SignInFormProps) => {
             </Form.Group>
           </FormikForm>
         )}
-      />
+      </Formik>
     </>
   );
 };
